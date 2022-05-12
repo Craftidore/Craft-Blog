@@ -68,12 +68,34 @@ function setBlog(fName) {
     });
 }
 function setBlogContent(markdown) {
+    var fileYaml = yaml.parseFromFile(markdown);
     document.getElementById("content").innerHTML = parseMarkdown(markdown);
 }
 function parseMarkdown(markdownText) {
     var htmlText = marked.parse(markdownText);
     return htmlText.trim();
 }
+function doStuffWithYaml(object) {
+    console.log(object);
+    return;
+}
 (function (global) {
+    var yaml = {};
+    var getFromFile = function (markdown) {
+        var yamlFrontmatter = /^---(\r|\n)((.|\r|\n)+)---/i.exec(markdown);
+        if (yamlFrontmatter) {
+            return yamlFrontmatter[2];
+        }
+        else { // pointless else, but added for clarification
+            return "yaml: false";
+        }
+    };
+    var parse = function (yml) {
+        return jsyaml.load(yml);
+    };
+    yaml.parseFromFile = function (markdown) {
+        parse(getFromFile(markdown));
+    };
+    global.yaml = yaml;
 })(window);
 //# sourceMappingURL=main.js.map

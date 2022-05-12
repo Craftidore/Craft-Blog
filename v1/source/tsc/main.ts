@@ -1,4 +1,6 @@
-declare var marked: any;
+declare const marked: any;
+declare const jsyaml: any;
+declare const yaml: any;
 
 addEventListener("DOMContentLoaded", (event) => {
 	(() => {
@@ -38,10 +40,17 @@ function setBlog(fName:string) {
 }
 
 function setBlogContent(markdown:string) {
+	var fileYaml = yaml.parseFromFile(markdown);
+
 	document.getElementById("content").innerHTML = parseMarkdown(markdown);
 }
 function parseMarkdown(markdownText:string):string {
 	const htmlText = marked.parse(markdownText);
 
 	return htmlText.trim()
+}
+
+function doStuffWithYaml(object:any) {
+	console.log(object);
+	return;
 }
