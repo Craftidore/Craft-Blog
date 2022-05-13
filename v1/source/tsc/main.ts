@@ -41,16 +41,34 @@ function setBlog(fName:string) {
 
 function setBlogContent(markdown:string) {
 	var fileYaml = yaml.parseFromFile(markdown);
+	doStuffWithYaml(fileYaml);
 
 	document.getElementById("content").innerHTML = parseMarkdown(markdown);
 }
 function parseMarkdown(markdownText:string):string {
-	const htmlText = marked.parse(markdownText);
+	var noYaml = yaml.removeFrontmatter(markdownText);
+	const htmlText = marked.parse(noYaml);
 
 	return htmlText.trim()
 }
 
 function doStuffWithYaml(object:any) {
 	console.log(object);
+	if (object.yaml) {
+		if (object.theme){
+			addStylingClass(object.theme, true);
+		}
+	}
+	else {
+		console.log("Yaml disabled.");
+	}
 	return;
+}
+
+function addStylingClass(cssClass:string, clearFirst:boolean) {
+	var mainElement:HTMLElement = document.getElementById("yamlClass");
+	if (clearFirst) {
+		mainElement.className = "";
+	}
+	mainElement.classList.add(cssClass);
 }

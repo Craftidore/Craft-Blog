@@ -69,15 +69,32 @@ function setBlog(fName) {
 }
 function setBlogContent(markdown) {
     var fileYaml = yaml.parseFromFile(markdown);
+    doStuffWithYaml(fileYaml);
     document.getElementById("content").innerHTML = parseMarkdown(markdown);
 }
 function parseMarkdown(markdownText) {
-    var htmlText = marked.parse(markdownText);
+    var noYaml = yaml.removeFrontmatter(markdownText);
+    var htmlText = marked.parse(noYaml);
     return htmlText.trim();
 }
 function doStuffWithYaml(object) {
     console.log(object);
+    if (object.yaml) {
+        if (object.theme) {
+            addStylingClass(object.theme, true);
+        }
+    }
+    else {
+        console.log("Yaml disabled.");
+    }
     return;
+}
+function addStylingClass(cssClass, clearFirst) {
+    var mainElement = document.getElementById("yamlClass");
+    if (clearFirst) {
+        mainElement.className = "";
+    }
+    mainElement.classList.add(cssClass);
 }
 (function (global) {
     var yaml = {};
@@ -94,7 +111,21 @@ function doStuffWithYaml(object) {
         return jsyaml.load(yml);
     };
     yaml.parseFromFile = function (markdown) {
-        parse(getFromFile(markdown));
+        var parsedYaml = parse(getFromFile(markdown));
+        if (parsedYaml.yaml === undefined) {
+            //`yaml: true` unless explicitely stated as `yaml: false` in the frontmatter
+            parsedYaml.yaml = true;
+        }
+        return parsedYaml;
+    };
+    yaml.removeFrontmatter = function (markdown) {
+        var yamlFrontmatter = /^---(\r|\n)((.|\r|\n)+)---(\r|\n)((.|\r|\n)+)/i.exec(markdown);
+        if (yamlFrontmatter) {
+            return yamlFrontmatter[5];
+        }
+        else { // pointless else, but added for clarification
+            return markdown;
+        }
     };
     global.yaml = yaml;
 })(window);

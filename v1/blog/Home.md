@@ -1,1 +1,5 @@
+---
+theme: "code"
+---
+
 Test
