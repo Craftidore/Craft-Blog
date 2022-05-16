@@ -90,7 +90,7 @@ function doStuffWithYaml(object) {
     return;
 }
 function addStylingClass(cssClass, clearFirst) {
-    var mainElement = document.getElementById("yamlClass");
+    var mainElement = document.getElementsByTagName("html")[0];
     if (clearFirst) {
         mainElement.className = "";
     }

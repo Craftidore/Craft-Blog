@@ -66,7 +66,7 @@ function doStuffWithYaml(object:any) {
 }
 
 function addStylingClass(cssClass:string, clearFirst:boolean) {
-	var mainElement:HTMLElement = document.getElementById("yamlClass");
+	var mainElement:HTMLElement = document.getElementsByTagName("html")[0];
 	if (clearFirst) {
 		mainElement.className = "";
 	}

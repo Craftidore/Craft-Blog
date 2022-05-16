@@ -1,2 +1,40 @@
+@mixin phone{
+    @media (max-width: 700px) {
+        @content;
+    }
+}
+@mixin tablet{
+    @media (min-width: 701px) and (max-width: 1200px) {
+        @content;
+    }
+}
+@mixin desktop{
+    @media (min-width: 1201px) {
+        @content;
+    }
+}
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0px;
+    padding: 0;
+    > div {
+        padding: 10px;
+    }
+}
 
+#content {
+    @include tablet(){
+        max-width: 50%;
+    }
+    @include desktop(){
+        max-width: 500px;
+    }
+    margin:auto;
+}
+#sidebar {
+    max-width: 20%;
+    float: left;
+}

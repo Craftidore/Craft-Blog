@@ -1,3 +1,37 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0px;
+  padding: 0;
+}
+body > div {
+  padding: 10px;
+}
+
+#content {
+  margin: auto;
+}
+@media (min-width: 701px) and (max-width: 1200px) {
+  #content {
+    max-width: 50%;
+  }
+}
+@media (min-width: 1201px) {
+  #content {
+    max-width: 500px;
+  }
+}
+
+#sidebar {
+  max-width: 20%;
+  float: left;
+}
+
+html.code {
+  background-color: #010101;
+  color: #1FC742;
+}
 
 /*# sourceMappingURL=style.css.map */
