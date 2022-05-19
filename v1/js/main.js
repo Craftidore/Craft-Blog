@@ -173,7 +173,7 @@ function parseMarkdown(markdownText) {
     var noYaml = yaml.removeFrontmatter(markdownText);
     var withComments = noYaml.replace(/([^\\]|^)%%(([^%])*)%%/gm, "$1<!--$2-->");
     var withAliasInternalLinks = withComments.replace(/([^\\]|^)\[\[ ?(.*)\|(.*)\]\]/, "$1<a class=\"internal-link\" page=\"$2\">$3</a>");
-    var withNoAliasInternalLinks = withAliasInternalLinks.replace(/([^\\]|^)\[\[ ?([^\|]*)\]\]/gm, "$1<a class=\"internal-link\" page=\"$2\">$2</a>");
+    var withNoAliasInternalLinks = withAliasInternalLinks.replace(/([^\\]|^)\[\[ ?([^\|\r\n]*)\]\]/gm, "$1<a class=\"internal-link\" page=\"$2\">$2</a>");
     var htmlText = marked.parse(withNoAliasInternalLinks);
     return htmlText.trim();
 }

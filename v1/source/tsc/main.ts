@@ -74,7 +74,7 @@ function parseMarkdown(markdownText:string):string {
 	var noYaml:string = yaml.removeFrontmatter(markdownText);
 	var withComments:string = noYaml.replace(/([^\\]|^)%%(([^%])*)%%/gm, "$1<!--$2-->");
 	var withAliasInternalLinks = withComments.replace(/([^\\]|^)\[\[ ?(.*)\|(.*)\]\]/, "$1<a class=\"internal-link\" page=\"$2\">$3</a>");
-	var withNoAliasInternalLinks:string = withAliasInternalLinks.replace(/([^\\]|^)\[\[ ?([^\|]*)\]\]/gm, "$1<a class=\"internal-link\" page=\"$2\">$2</a>")
+	var withNoAliasInternalLinks:string = withAliasInternalLinks.replace(/([^\\]|^)\[\[ ?([^\|\r\n]*)\]\]/gm, "$1<a class=\"internal-link\" page=\"$2\">$2</a>")
 	const htmlText = marked.parse(withNoAliasInternalLinks);
 
 	return htmlText.trim()
