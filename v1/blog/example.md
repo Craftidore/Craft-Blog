@@ -1,5 +1,4 @@
 ---
-theme: "code"
 title: "This is a title"
 date: 220513
 ---

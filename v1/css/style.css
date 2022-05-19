@@ -24,14 +24,128 @@ body > div {
   }
 }
 
-#sidebar {
-  max-width: 20%;
-  float: left;
+@media (max-width: 700px) {
+  #sidebar {
+    display: none;
+    /*this will get overriden in the dom by js*/
+  }
+}
+@media (min-width: 701px) and (max-width: 1200px) {
+  #sidebar {
+    display: block !important;
+    /*Yes, !important, but this is to counter on-element display:none;*/
+    max-width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 1201px) {
+  #sidebar {
+    display: block !important;
+    /*Yes, !important, but this is to counter on-element display:none;*/
+  }
+}
+
+canvas.logo {
+  width: 100px;
+  height: 126.1px;
+}
+
+@media (max-width: 700px) {
+  .hamburger-menu {
+    display: block;
+    height: 26px;
+    width: 32px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger-menu .line {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+  }
+
+  .titlebar .title {
+    display: none;
+  }
+
+  .titlebar canvas.logo {
+    margin-left: 80%;
+    margin-top: 8px;
+    width: 50px;
+    height: 63.1px;
+  }
+}
+@media (min-width: 701px) and (max-width: 1200px) {
+  .titlebar .title {
+    text-align: center;
+  }
+
+  .titlebar .logo {
+    margin-left: 80%;
+    position: absolute;
+    top: 16px;
+    right: 40px;
+    width: 50px;
+    height: 63.1px;
+  }
+
+  #sidebar {
+    width: 20%;
+  }
+  #sidebar ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+  }
+  #sidebar li {
+    width: fit-content;
+    list-style: none;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 1201px) {
+  .titlebar .title {
+    text-align: center;
+  }
+
+  .titlebar .logo {
+    margin-left: 80%;
+    position: absolute;
+    top: 16px;
+    right: 40px;
+    width: 50px;
+    height: 63.1px;
+  }
+}
+html {
+  --mainText: #888;
+  --mainBackground: #111;
+  --mainAccent: #888;
+  --codeBackground: #999;
+  --codeColor: #000;
+  background-color: var(--mainBackground);
+  color: var(--mainText);
+}
+html .hamburger-menu .line {
+  background-color: var(--mainAccent);
+}
+html pre {
+  background: #141414;
 }
 
 html.code {
-  background-color: #010101;
-  color: #1FC742;
+  --mainBackground: #010101;
+  --mainText: #1FC742;
+  --mainAccent: #1FC742;
 }
 
 /*# sourceMappingURL=style.css.map */

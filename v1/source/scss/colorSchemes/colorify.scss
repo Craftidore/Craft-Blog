@@ -1,0 +1,15 @@
+html {
+    --mainText: #888;
+    --mainBackground: #111;
+    --mainAccent: #888;
+    --codeBackground: #999;
+    --codeColor: #000;
+    background-color: var(--mainBackground);
+    color: var(--mainText);
+    .hamburger-menu .line {
+        background-color: var(--mainAccent);
+    }
+    pre {
+        background: hsl(0, 0%, 8%);
+    }
+}

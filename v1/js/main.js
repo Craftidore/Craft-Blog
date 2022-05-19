@@ -35,6 +35,80 @@ function handleResponse(request, responseHandler) {
         responseHandler(request);
     }
 }
+(function (global) {
+    addEventListener("DOMContentLoaded", function (event) {
+        var menu = document.getElementById("hamburger-menu");
+        menu.addEventListener("click", hamburger.toggleMenu);
+    });
+    var hamburger = {};
+    var MENUOPEN = "Menu is open";
+    var MENUCLOSED = "Menu is closed";
+    var menuState = MENUCLOSED;
+    var openMenu = function () {
+        var menu = document.getElementById("sidebar");
+        menu.style.display = "block";
+        menuState = MENUOPEN;
+    };
+    var closeMenu = function () {
+        var menu = document.getElementById("sidebar");
+        menu.style.display = "none";
+        menuState = MENUCLOSED;
+    };
+    hamburger.toggleMenu = function () {
+        if (menuState === MENUOPEN) {
+            closeMenu();
+        }
+        else if (menuState === MENUCLOSED) {
+            openMenu();
+        }
+        else {
+            throw Error("Invalid menuState: " + menuState);
+        }
+    };
+})(window);
+(function (global) {
+    var logoColor = {};
+    var src = "./source/img/Logo.png";
+    logoColor.loadLogos = function () {
+        // @ts-ignore: type error
+        var canvases = document.getElementsByClassName("logo");
+        console.log(canvases);
+        for (var cnum = 0; cnum < canvases.length; cnum++) {
+            loadLogo(canvases[cnum]);
+        }
+    };
+    var loadLogo = function (canvas) {
+        var ctx = canvas.getContext("2d");
+        var img = new Image;
+        //wait for the image to load
+        img.onload = function () {
+            //Draw the original image so that you can fetch the colour data
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            /*
+            imgData.data is a one-dimensional array which contains
+            the respective RGBA values for every pixel
+            in the selected region of the context
+            (note i+=4 in the loop)
+            */
+            for (var i = 0; i < imgData.data.length; i += 4) {
+                imgData.data[i] = 31; //Red, 0-255
+                imgData.data[i + 1] = 199; //Green, 0-255
+                imgData.data[i + 2] = 66; //Blue, 0-255
+                /*
+                imgData.data[i+3] contains the alpha value
+                which we are going to ignore and leave
+                alone with its original value
+                */
+            }
+            ctx.clearRect(0, 0, canvas.width, canvas.height); //clear the original image
+            ctx.putImageData(imgData, 0, 0); //paint the new colorised image
+        };
+        //Load the image!
+        img.src = src;
+    };
+    global.logoColor = logoColor;
+})(window);
 addEventListener("DOMContentLoaded", function (event) {
     (function () {
         var q = new URLSearchParams(location.search);
@@ -54,11 +128,22 @@ addEventListener("DOMContentLoaded", function (event) {
         smartypants: false,
         xhtml: false
     });
+    marked.setOptions({
+        highlight: function (code, lang) {
+            if (Prism.languages[lang]) {
+                return Prism.highlight(code, Prism.languages[lang], lang);
+            }
+            else {
+                return code;
+            }
+        },
+    });
     loadBlog();
 });
 function loadBlog() {
     var q = new URLSearchParams(location.search);
     var page = q.get('page');
+    setSidebar();
     setBlog(page);
 }
 function setBlog(fName) {
@@ -67,19 +152,37 @@ function setBlog(fName) {
         setBlogContent(markdown);
     });
 }
+function setSidebar() {
+    $ajaxUtils.sendGetRequest("./blog/sidebar/mainSidebar.md", function (response) {
+        var markdown = response.responseText;
+        setSidebarContent(markdown);
+    });
+}
+function setSidebarContent(markdown) {
+    document.getElementById("sidebar").innerHTML = parseMarkdown(markdown);
+    setLinks();
+}
 function setBlogContent(markdown) {
     var fileYaml = yaml.parseFromFile(markdown);
     doStuffWithYaml(fileYaml);
     document.getElementById("content").innerHTML = parseMarkdown(markdown);
+    logoColor.loadLogos();
+    setLinks();
 }
 function parseMarkdown(markdownText) {
     var noYaml = yaml.removeFrontmatter(markdownText);
-    var htmlText = marked.parse(noYaml);
+    var withComments = noYaml.replace(/([^\\]|^)%%(([^%])*)%%/gm, "$1<!--$2-->");
+    var withAliasInternalLinks = withComments.replace(/([^\\]|^)\[\[ ?(.*)\|(.*)\]\]/, "$1<a class=\"internal-link\" page=\"$2\">$3</a>");
+    var withNoAliasInternalLinks = withAliasInternalLinks.replace(/([^\\]|^)\[\[ ?([^\|]*)\]\]/gm, "$1<a class=\"internal-link\" page=\"$2\">$2</a>");
+    var htmlText = marked.parse(withNoAliasInternalLinks);
     return htmlText.trim();
 }
 function doStuffWithYaml(object) {
     console.log(object);
     if (object.yaml) {
+        if (object.title) {
+            document.getElementsByTagName("title")[0].innerText = object.title;
+        }
         if (object.theme) {
             addStylingClass(object.theme, true);
         }
@@ -95,6 +198,19 @@ function addStylingClass(cssClass, clearFirst) {
         mainElement.className = "";
     }
     mainElement.classList.add(cssClass);
+}
+function setLinks() {
+    var links = document.getElementsByClassName("internal-link");
+    for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        // @ts-ignore: type checking
+        link.setAttribute("href", "?" + adjustedURLParams(link.getAttribute("page")));
+    }
+    function adjustedURLParams(pageName) {
+        var urlParams = new URLSearchParams(location.search);
+        urlParams.set("page", pageName);
+        return urlParams.toString();
+    }
 }
 (function (global) {
     var yaml = {};

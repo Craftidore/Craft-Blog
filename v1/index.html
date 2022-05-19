@@ -5,21 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Template Blog</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <noscript>Please enable javascript in your browser to view the contents of this page.</noscript>
+    <script src="js/prism.min.js"></script>
     <script src="js/marked.min.js"></script>
     <script src="js/js-yaml.js"></script>
     <script src="js/main.js"></script>
 </head>
 <body>
     <div>
-        <h1>Template</h1>
-        <div id="content"></div>
-        <div id="sidebar">
-            <ul>
-                <li>Test</li>
-                <li>Test 2</li>
-                <li>Test 3</li>
-            </ul>
+        <div class="titlebar">
+            <a href="#" page="home">
+                <h1 class="title">Template</h1>
+                <canvas class="logo"></canvas>
+            </a>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger-lines">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+                </div>
+            </div>
         </div>
+        <div id="sidebar">
+        </div>
+        <div id="content"></div>
     </div>
 </body>
 </html>
