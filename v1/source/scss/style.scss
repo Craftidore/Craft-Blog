@@ -1,3 +1,13 @@
+// Top Level
 @use './mainStyles.scss';
+
+// Layout 
+
+@use './titlebar.scss';
+@use './sidebar.scss';
+@use './hamburger.scss';
+@use './content.scss';
+
+// Color
 @use './colorSchemes/colorify.scss';
 @use './colorSchemes/programming.scss';

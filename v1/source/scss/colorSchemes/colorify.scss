@@ -1,15 +1,61 @@
 html {
     --mainText: #888;
     --mainBackground: #111;
-    --mainAccent: #888;
-    --codeBackground: #999;
-    --codeColor: #000;
+    --mainAccent: #808;
+    --codeBackground: #080808;
     background-color: var(--mainBackground);
     color: var(--mainText);
     .hamburger-menu .line {
         background-color: var(--mainAccent);
     }
     pre {
-        background: hsl(0, 0%, 8%);
+        background: var(--codeBackground);
+        padding: .1rem .3rem .2rem;
+        border-radius: .2rem;
+        ::-webkit-scrollbar {
+            height:5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--codeBackground);
+        }
+        ::-webkit-scrollbar-button {
+            display: none;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--mainAccent);
+        }
+        code {
+            display: block;
+            background: none;
+            white-space: pre;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            max-width: 100%;
+            min-width: 100px;
+            padding: 15px 20px 12px 22px;
+            line-height: 1.75;
+        }
+    }
+    code {
+        font-size: inherit;
+    }
+    .titlebar {
+        a, a:hover, a:visited {
+            color: var(--mainText);
+        }
+    }
+    #sidebar {
+        background-color: var(--mainBackground);
+        li {
+            &:hover {
+                background-color: var(--mainAccent);
+                a, a:visited {
+                    color: var(--mainBackground);
+                }
+            }
+            a, a:visited {
+                color: var(--mainAccent);
+            }
+        }
     }
 }

@@ -10,31 +10,70 @@ body > div {
   padding: 10px;
 }
 
-#content {
-  margin: auto;
-}
-@media (min-width: 701px) and (max-width: 1200px) {
-  #content {
-    max-width: 50%;
-  }
-}
-@media (min-width: 1201px) {
-  #content {
-    max-width: 500px;
-  }
+canvas.logo {
+  width: 100px;
+  height: 126.1px;
 }
 
+.titlebar a, .titlebar a:visited, .titlebar a:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .titlebar .title {
+    display: none;
+  }
+
+  .titlebar canvas.logo {
+    margin-left: 80%;
+    margin-top: 8px;
+    width: 50px;
+    height: 63.1px;
+  }
+}
+@media (min-width: 701px) {
+  .titlebar .title {
+    text-align: center;
+  }
+
+  .titlebar .logo {
+    margin-left: 80%;
+    position: absolute;
+    top: 16px;
+    right: 40px;
+    width: 50px;
+    height: 63.1px;
+  }
+}
+#sidebar li {
+  width: 100%;
+  min-height: 30px;
+  list-style: none;
+}
+#sidebar a, #sidebar a:hover {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
 @media (max-width: 700px) {
   #sidebar {
     display: none;
     /*this will get overriden in the dom by js*/
+    position: absolute;
+    left: 0;
+    opacity: 80%;
+    width: 100%;
+    border: black 1px solid;
+    border-radius: 3px;
   }
 }
 @media (min-width: 701px) and (max-width: 1200px) {
   #sidebar {
     display: block !important;
     /*Yes, !important, but this is to counter on-element display:none;*/
-    max-width: 20%;
+    width: 20%;
     float: left;
   }
 }
@@ -42,12 +81,14 @@ body > div {
   #sidebar {
     display: block !important;
     /*Yes, !important, but this is to counter on-element display:none;*/
+    max-width: 20%;
+    float: left;
   }
 }
-
-canvas.logo {
-  width: 100px;
-  height: 126.1px;
+#sidebar ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
 }
 
 @media (max-width: 700px) {
@@ -70,68 +111,26 @@ canvas.logo {
     background-color: black;
     margin: 6px 0;
   }
-
-  .titlebar .title {
-    display: none;
-  }
-
-  .titlebar canvas.logo {
-    margin-left: 80%;
-    margin-top: 8px;
-    width: 50px;
-    height: 63.1px;
-  }
+}
+#content {
+  margin: auto;
 }
 @media (min-width: 701px) and (max-width: 1200px) {
-  .titlebar .title {
-    text-align: center;
-  }
-
-  .titlebar .logo {
-    margin-left: 80%;
-    position: absolute;
-    top: 16px;
-    right: 40px;
-    width: 50px;
-    height: 63.1px;
-  }
-
-  #sidebar {
-    width: 20%;
-  }
-  #sidebar ul {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-inline-start: 0;
-  }
-  #sidebar li {
-    width: fit-content;
-    list-style: none;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  #content {
+    max-width: 50%;
   }
 }
 @media (min-width: 1201px) {
-  .titlebar .title {
-    text-align: center;
-  }
-
-  .titlebar .logo {
-    margin-left: 80%;
-    position: absolute;
-    top: 16px;
-    right: 40px;
-    width: 50px;
-    height: 63.1px;
+  #content {
+    max-width: 500px;
   }
 }
+
 html {
   --mainText: #888;
   --mainBackground: #111;
-  --mainAccent: #888;
-  --codeBackground: #999;
-  --codeColor: #000;
+  --mainAccent: #808;
+  --codeBackground: #080808;
   background-color: var(--mainBackground);
   color: var(--mainText);
 }
@@ -139,13 +138,58 @@ html .hamburger-menu .line {
   background-color: var(--mainAccent);
 }
 html pre {
-  background: #141414;
+  background: var(--codeBackground);
+  padding: 0.1rem 0.3rem 0.2rem;
+  border-radius: 0.2rem;
+}
+html pre ::-webkit-scrollbar {
+  height: 5px;
+}
+html pre ::-webkit-scrollbar-track {
+  background: var(--codeBackground);
+}
+html pre ::-webkit-scrollbar-button {
+  display: none;
+}
+html pre ::-webkit-scrollbar-thumb {
+  background: var(--mainAccent);
+}
+html pre code {
+  display: block;
+  background: none;
+  white-space: pre;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 15px 20px 12px 22px;
+  line-height: 1.75;
+}
+html code {
+  font-size: inherit;
+}
+html .titlebar a, html .titlebar a:hover, html .titlebar a:visited {
+  color: var(--mainText);
+}
+html #sidebar {
+  background-color: var(--mainBackground);
+}
+html #sidebar li:hover {
+  background-color: var(--mainAccent);
+}
+html #sidebar li:hover a, html #sidebar li:hover a:visited {
+  color: var(--mainBackground);
+}
+html #sidebar li a, html #sidebar li a:visited {
+  color: var(--mainAccent);
 }
 
 html.code {
   --mainBackground: #010101;
   --mainText: #1FC742;
   --mainAccent: #1FC742;
+  --codeBackground: hsl(0, 0%, 8%);
+  --codeColor: #000;
 }
 
 /*# sourceMappingURL=style.css.map */

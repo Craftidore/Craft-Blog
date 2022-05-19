@@ -1,0 +1,40 @@
+@use './utils.scss';
+
+#sidebar {
+    li {
+        width: 100%;
+        min-height: 30px;
+        list-style: none;
+    }
+    a, a:hover {
+        width: 100%;
+        display: block;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+    }
+    @include utils.phone() {
+        display: none;/*this will get overriden in the dom by js*/
+        position: absolute;
+        left: 0;
+        opacity: 80%;
+        width: 100%;
+        border: black 1px solid;
+        border-radius: 3px;
+    }
+    @include utils.tablet(){
+        display: block !important;/*Yes, !important, but this is to counter on-element display:none;*/
+        width: 20%;
+        float: left;
+    }
+    @include utils.desktop(){
+        display: block !important;/*Yes, !important, but this is to counter on-element display:none;*/
+        max-width: 20%;
+        float: left;
+    }
+    ul {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+    }
+}

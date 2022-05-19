@@ -1,0 +1,11 @@
+@use './utils.scss';
+
+#content {
+    @include utils.tablet(){
+        max-width: 50%;
+    }
+    @include utils.desktop(){
+        max-width: 500px;
+    }
+    margin:auto;
+}

@@ -1,0 +1,33 @@
+@use './utils.scss';
+
+.titlebar {
+    a, a:visited, a:hover {
+        text-decoration: none;
+    }
+}
+
+@include utils.phone() {
+    .titlebar .title {
+        display: none;
+    }
+    .titlebar canvas.logo {
+        margin-left: 80%;
+        margin-top: 8px;
+        width: 50px;
+        height: 63.1px;
+    }
+
+}
+@include utils.tabletordesktop() {
+    .titlebar .title {
+        text-align: center;
+    }
+    .titlebar .logo {
+        margin-left: 80%;
+        position: absolute;
+        top: 16px;
+        right: 40px;
+        width: 50px;
+        height: 63.1px;
+    }
+}

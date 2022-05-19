@@ -1,18 +1,5 @@
-@mixin phone{
-    @media (max-width: 700px) {
-        @content;
-    }
-}
-@mixin tablet{
-    @media (min-width: 701px) and (max-width: 1200px) {
-        @content;
-    }
-}
-@mixin desktop{
-    @media (min-width: 1201px) {
-        @content;
-    }
-}
+@use './utils.scss';
+
 * {
     box-sizing: border-box;
 }
@@ -25,104 +12,7 @@ body {
     }
 }
 
-#content {
-    @include tablet(){
-        max-width: 50%;
-    }
-    @include desktop(){
-        max-width: 500px;
-    }
-    margin:auto;
-}
-#sidebar {
-    @include phone(){
-        display: none;/*this will get overriden in the dom by js*/
-        
-    }
-    @include tablet(){
-        display: block !important;/*Yes, !important, but this is to counter on-element display:none;*/
-        max-width: 20%;
-        float: left;
-    }
-    @include desktop(){
-        display: block !important;/*Yes, !important, but this is to counter on-element display:none;*/
-
-    }
-}
 canvas.logo {
     width: 100px;
     height: 126.1px;
-}
-
-@include phone(){
-    .hamburger-menu {
-        display: block;
-        height: 26px;
-        width: 32px;
-        position: absolute;
-        top: 17px;
-        left: 20px;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .hamburger-menu .line {
-        width: 35px;
-        height: 5px;
-        background-color: black;
-        margin: 6px 0;
-    }
-    .titlebar .title {
-        display: none;
-    }
-    .titlebar canvas.logo {
-        margin-left: 80%;
-        margin-top: 8px;
-        width: 50px;
-        height: 63.1px;
-    }
-
-}
-@include tablet(){
-    .titlebar .title {
-        text-align: center;
-    }
-    .titlebar .logo {
-        margin-left: 80%;
-        position: absolute;
-        top: 16px;
-        right: 40px;
-        width: 50px;
-        height: 63.1px;
-    }
-    #sidebar {
-        width: 20%;
-        ul {
-            margin-block-start: 0;
-            margin-block-end: 0;
-            padding-inline-start: 0;
-        }
-        li {
-            width: fit-content;
-            list-style: none;
-            margin: auto;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-    }
-}
-@include desktop(){
-    .titlebar .title {
-        text-align: center;
-    }
-    .titlebar .logo {
-        margin-left: 80%;
-        position: absolute;
-        top: 16px;
-        right: 40px;
-        width: 50px;
-        height: 63.1px;
-    }
 }
