@@ -1,9 +1,6 @@
 ---
-theme: code
+theme: default
+title: "Craftidore's Blog"
+date: 220500
 ---
 
-- [[ example]]
-- [[ example]]
-
-
-[[Example]]

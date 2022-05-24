@@ -14,12 +14,15 @@ class blogPost:
 def toJson(posts):
     return json.dumps(posts, default=lambda o: o.__dict__)
 
-def main():
+
+def indexBlog():
     fileNames = getBlogPosts()
     posts = iterateFiles(fileNames)
     postLists = splitByHundred(posts)
     writeJSON("postPage01", "", "", postLists[0])
 
+def main():
+    indexBlog()
 
 def getBlogPosts():
     l = []
