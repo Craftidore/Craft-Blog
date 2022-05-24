@@ -81,7 +81,8 @@ canvas.logo {
   #sidebar {
     display: block !important;
     /*Yes, !important, but this is to counter on-element display:none;*/
-    max-width: 20%;
+    width: 28%;
+    max-width: 400px;
     float: left;
   }
 }
@@ -113,7 +114,9 @@ canvas.logo {
   }
 }
 #content {
-  margin: auto;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 @media (min-width: 701px) and (max-width: 1200px) {
   #content {

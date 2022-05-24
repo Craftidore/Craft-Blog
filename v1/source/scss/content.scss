@@ -7,5 +7,7 @@
     @include utils.desktop(){
         max-width: 500px;
     }
-    margin:auto;
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
