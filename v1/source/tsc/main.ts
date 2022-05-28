@@ -7,7 +7,7 @@ declare const Prism: any;
 
 addEventListener("DOMContentLoaded", (event) => {
 	(() => {
-		let q:URLSearchParams = new URLSearchParams(location.search);
+		let q:URLSearchParams = getURLParams();
 		let page:string = q.get("page");
 		if (page === "" || page === null) {
 			q.set("page", "Home");
@@ -34,7 +34,7 @@ addEventListener("DOMContentLoaded", (event) => {
 		},
 	});
 
-
+	determineColorStyle("default");
 	loadBlog();
 });
 
@@ -87,21 +87,13 @@ function doStuffWithYaml(object:any) {
 			document.getElementsByTagName("title")[0].innerText = object.title;
 		}
 		if (object.theme){
-			addStylingClass(object.theme, true);
+			determineColorStyle(object.theme);
 		}
 	}
 	else {
 		console.log("Yaml disabled.");
 	}
 	return;
-}
-
-function addStylingClass(cssClass:string, clearFirst:boolean) {
-	var mainElement:HTMLElement = document.getElementsByTagName("html")[0];
-	if (clearFirst) {
-		mainElement.className = "";
-	}
-	mainElement.classList.add(cssClass);
 }
 
 function setLinks() {
@@ -113,8 +105,45 @@ function setLinks() {
 		link.setAttribute("href", "?" + adjustedURLParams(link.getAttribute("page")));
 	}
 	function adjustedURLParams(pageName:string){
-		let urlParams:URLSearchParams = new URLSearchParams(location.search);
+		let urlParams:URLSearchParams = getURLParams();
 		urlParams.set("page", pageName);
 		return urlParams.toString();
 	}
+}
+function getURLParams() {
+	let urlParams:URLSearchParams = new URLSearchParams(location.search);
+	return urlParams;
+}
+function changeURLParam(key:string, value:string) {
+	let urlParams:URLSearchParams = getURLParams();
+	urlParams.set(key, value);
+	location.search = urlParams.toString();
+	return;
+}
+function setURLParams(values:any) {
+	let keys = values.keys();
+	let urlParams = new URLSearchParams();
+	for (let i:number = 0; i < keys.length; i++) {
+		urlParams.set(keys[i], values[keys[i]]);
+	}
+	location.search = urlParams.toString();
+	return;
+}
+
+function determineColorStyle(yaml:string) {
+	let theme;
+	theme = yaml;
+	if (getURLParams().get('theme')) {
+		theme = getURLParams().get('theme');
+	}
+
+	addStylingClass(theme, true);
+}
+
+function addStylingClass(cssClass:string, clearFirst:boolean) {
+	var mainElement:HTMLElement = document.getElementsByTagName("html")[0];
+	if (clearFirst) {
+		mainElement.className = "";
+	}
+	mainElement.classList.add(cssClass);
 }

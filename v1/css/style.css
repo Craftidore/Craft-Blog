@@ -113,19 +113,21 @@ canvas.logo {
     margin: 6px 0;
   }
 }
-#content {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
 @media (min-width: 701px) and (max-width: 1200px) {
   #content {
-    max-width: 50%;
+    width: 50%;
   }
 }
 @media (min-width: 1201px) {
   #content {
-    max-width: 500px;
+    width: 500px;
+  }
+}
+@media (min-width: 701px) {
+  #content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }
 
@@ -170,6 +172,7 @@ html pre code {
 }
 html code {
   font-size: inherit;
+  background: var(--codeBackground);
 }
 html .titlebar a, html .titlebar a:hover, html .titlebar a:visited {
   color: var(--mainText);

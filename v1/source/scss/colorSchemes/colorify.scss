@@ -38,6 +38,7 @@ html {
     }
     code {
         font-size: inherit;
+	background: var(--codeBackground);
     }
     .titlebar {
         a, a:hover, a:visited {
