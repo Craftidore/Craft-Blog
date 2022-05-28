@@ -148,7 +148,7 @@ function loadBlog() {
     setBlog(page);
 }
 function setBlog(fName) {
-    $ajaxUtils.sendGetRequest("./blog/" + fName + ".md", function (response) {
+    $ajaxUtils.sendGetRequest("./blog/" + fName + ".txt", function (response) {
         var markdown = response.responseText;
         setBlogContent(markdown);
     });

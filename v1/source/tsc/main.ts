@@ -46,7 +46,7 @@ function loadBlog() {
 }
 
 function setBlog(fName:string) {
-	$ajaxUtils.sendGetRequest("./blog/"+fName+".md", (response:any) => {
+	$ajaxUtils.sendGetRequest("./blog/"+fName+".txt", (response:any) => {
 		let markdown = response.responseText;
 		setBlogContent(markdown);
 	});
