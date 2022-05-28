@@ -154,7 +154,7 @@ function setBlog(fName) {
     });
 }
 function setSidebar() {
-    $ajaxUtils.sendGetRequest("./blog/sidebar/mainSidebar.md", function (response) {
+    $ajaxUtils.sendGetRequest("./blog/sidebar/mainSidebar.txt", function (response) {
         var markdown = response.responseText;
         setSidebarContent(markdown);
     });
