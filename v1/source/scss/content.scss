@@ -2,12 +2,14 @@
 
 #content {
     @include utils.tablet(){
-        max-width: 50%;
+        width: 50%;
     }
     @include utils.desktop(){
-        max-width: 500px;
+        width: 500px;
     }
-    position:absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    @include utils.tabletordesktop(){
+	    position:absolute;
+	    left: 50%;
+	    transform: translate(-50%, 0);
+    }
 }
