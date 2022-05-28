@@ -1,9 +1,12 @@
 ---
-title: "This is a title"
+title: "Lorem Ipsum"
 date: 220513
+time: "10:00"
 ---
 
-# Test Lorem Ipsum
+# Lorem Ipsum
+
+(For testing what the blog looks like)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lacinia eros eu purus tempor, ut efficitur erat tincidunt. Nunc at erat felis. Suspendisse ut dictum risus. Nam varius pellentesque imperdiet. Fusce sit amet neque eget massa pulvinar lacinia et vitae est. Phasellus non convallis neque, id convallis quam. In pretium turpis ipsum, eget luctus diam laoreet et. Proin mattis ullamcorper arcu. Sed egestas urna elit, non consectetur nibh iaculis fringilla. Fusce fringilla in odio vel porttitor. Etiam quis dolor nisl. Mauris scelerisque massa sit amet leo consequat, non consectetur turpis pretium. Mauris felis ligula, accumsan sit amet magna vitae, ultrices porta dui. Nulla neque nulla, tincidunt ut orci ultricies, eleifend rhoncus eros. Duis dictum maximus porta. Maecenas et sollicitudin felis.
 
