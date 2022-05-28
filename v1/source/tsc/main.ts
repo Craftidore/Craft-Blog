@@ -52,7 +52,7 @@ function setBlog(fName:string) {
 	});
 }
 function setSidebar() {
-	$ajaxUtils.sendGetRequest("./blog/sidebar/mainSidebar.md", (response:any) => {
+	$ajaxUtils.sendGetRequest("./blog/sidebar/mainSidebar.txt", (response:any) => {
 		let markdown = response.responseText;
 		setSidebarContent(markdown);
 	});
