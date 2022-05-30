@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <p>Please follow <a let id="follow" href="./v1/">this link</a>.</p>
+    <script>
+	    let urlParams = new URLSearchParams(location.search);
+	    let follow  = document.getElementById('follow');
+	    follow.setAttribute('href', "./v1?" + urlParams.toString());
+	    window.location.replace("./v1?" + urlParams.toString());
+    </script>
+  </body>
+</html>
