@@ -5,4 +5,5 @@ date: 220501
 time: "10:00"
 ---
 
-Testing and whatnot. 
+Welcome to Craftidore's blog!
+

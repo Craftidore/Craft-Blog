@@ -148,13 +148,13 @@ function loadBlog() {
     setBlog(page);
 }
 function setBlog(fName) {
-    $ajaxUtils.sendGetRequest("./blog/" + fName + ".md", function (response) {
+    $ajaxUtils.sendGetRequest("./blog/" + fName + ".txt", function (response) {
         var markdown = response.responseText;
         setBlogContent(markdown);
     });
 }
 function setSidebar() {
-    $ajaxUtils.sendGetRequest("./blog/sidebar/mainSidebar.md", function (response) {
+    $ajaxUtils.sendGetRequest("./blog/sidebar/mainSidebar.txt", function (response) {
         var markdown = response.responseText;
         setSidebarContent(markdown);
     });
