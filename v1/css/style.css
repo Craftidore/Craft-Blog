@@ -34,6 +34,7 @@ canvas.logo {
 @media (min-width: 701px) {
   .titlebar .title {
     text-align: center;
+    font-size: 40px;
   }
 
   .titlebar .logo {

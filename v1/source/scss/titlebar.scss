@@ -21,6 +21,7 @@
 @include utils.tabletordesktop() {
     .titlebar .title {
         text-align: center;
+	font-size: 40px;
     }
     .titlebar .logo {
         margin-left: 80%;
