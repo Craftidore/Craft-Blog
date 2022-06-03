@@ -111,7 +111,7 @@ function handleResponse(request, responseHandler) {
 })(window);
 addEventListener("DOMContentLoaded", function (event) {
     (function () {
-        var q = new URLSearchParams(location.search);
+        var q = getURLParams();
         var page = q.get("page");
         if (page === "" || page === null) {
             q.set("page", "Home");
@@ -138,6 +138,7 @@ addEventListener("DOMContentLoaded", function (event) {
             }
         },
     });
+    determineColorStyle("default");
     loadBlog();
 });
 function loadBlog() {
@@ -147,13 +148,13 @@ function loadBlog() {
     setBlog(page);
 }
 function setBlog(fName) {
-    $ajaxUtils.sendGetRequest("./blog/" + fName + ".md", function (response) {
+    $ajaxUtils.sendGetRequest("./blog/" + fName + ".txt", function (response) {
         var markdown = response.responseText;
         setBlogContent(markdown);
     });
 }
 function setSidebar() {
-    $ajaxUtils.sendGetRequest("./blog/sidebar/mainSidebar.md", function (response) {
+    $ajaxUtils.sendGetRequest("./blog/sidebar/mainSidebar.txt", function (response) {
         var markdown = response.responseText;
         setSidebarContent(markdown);
     });
@@ -184,20 +185,13 @@ function doStuffWithYaml(object) {
             document.getElementsByTagName("title")[0].innerText = object.title;
         }
         if (object.theme) {
-            addStylingClass(object.theme, true);
+            determineColorStyle(object.theme);
         }
     }
     else {
         console.log("Yaml disabled.");
     }
     return;
-}
-function addStylingClass(cssClass, clearFirst) {
-    var mainElement = document.getElementsByTagName("html")[0];
-    if (clearFirst) {
-        mainElement.className = "";
-    }
-    mainElement.classList.add(cssClass);
 }
 function setLinks() {
     var links = document.getElementsByClassName("internal-link");
@@ -207,10 +201,44 @@ function setLinks() {
         link.setAttribute("href", "?" + adjustedURLParams(link.getAttribute("page")));
     }
     function adjustedURLParams(pageName) {
-        var urlParams = new URLSearchParams(location.search);
+        var urlParams = getURLParams();
         urlParams.set("page", pageName);
         return urlParams.toString();
     }
+}
+function getURLParams() {
+    var urlParams = new URLSearchParams(location.search);
+    return urlParams;
+}
+function changeURLParam(key, value) {
+    var urlParams = getURLParams();
+    urlParams.set(key, value);
+    location.search = urlParams.toString();
+    return;
+}
+function setURLParams(values) {
+    var keys = values.keys();
+    var urlParams = new URLSearchParams();
+    for (var i = 0; i < keys.length; i++) {
+        urlParams.set(keys[i], values[keys[i]]);
+    }
+    location.search = urlParams.toString();
+    return;
+}
+function determineColorStyle(yaml) {
+    var theme;
+    theme = yaml;
+    if (getURLParams().get('theme')) {
+        theme = getURLParams().get('theme');
+    }
+    addStylingClass(theme, true);
+}
+function addStylingClass(cssClass, clearFirst) {
+    var mainElement = document.getElementsByTagName("html")[0];
+    if (clearFirst) {
+        mainElement.className = "";
+    }
+    mainElement.classList.add(cssClass);
 }
 (function (global) {
     var yaml = {};
