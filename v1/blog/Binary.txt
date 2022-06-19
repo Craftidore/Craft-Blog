@@ -10,21 +10,12 @@ We've all heard that computers do everything in numbers or everything in ones an
 I'm looking at my editor (vim) and honestly, it doesn't look like a bunch of numbers, just words. 
 What then does this mean? How can things like text be 'numbers' under the hood?
 
-## Storing Numbers
+## Bases of Numbers
 
-We'll start with actual numbers.
-Computers store numbers in terms of possibility.
-Think of this like the number of digits in a number. 
-If I have a 1 digit number, the number has 10 possibilities (0-9), a two digit number, 100 possibilities (00-99) and so on.
-Now, in computer storage, all the digits are squashed together, even if they refer to separate numbers, so 86 and 66 would be represented as 8666, with nothing to declare the numbers separate.
-Computers know that 86 is separate from 66 because of their length. 
-Each has a length of two digits, and thus each are separate numbers.
-Of course, if you want to store the number 7, you have to write 07 instead, to keep it two digits long.
+When we count, we have a concept of digits. 
+There are ten symbols (0-9) and when we get to the end of them, we represent the number with *two* such symbols.
+The first symbol is the 'tens' and the second is the 'ones.'
+You know this&mdash;if you're a human in the twenty-first century then you probably use numbers greater than ten on a daily basis&mdash;so why am I telling you this?
+Well there's nothing particularly special about the number ten.
 
-All of the above is wrong. 
-Computer don't have a piece of paper where they right down '8666'. 
-A number is never going to have 10 possibilities, or 100, or 1000, but they *do* store numbers right up against each other *and* each of those numbers must have a set length. 
-When we write numbers on paper, each digit takes up about the same width and height as each other.
-We use base 10&mdash;when we write a single digit base 10 number, we can fit 10 possibilities (0-9).
-For us,this lets us write big numbers in small spaces. One million two hundred fifty thousand three hundred four is a mere %% 1250304 %% 7 digits long.
-Let's say that instead of 0-9, we had 36 possibilities per digit instead, 
+
