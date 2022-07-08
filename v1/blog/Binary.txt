@@ -2,6 +2,7 @@
 title: What is Binary
 date: 220610
 time: "10:00"
+theme: "code"
 ---
 
 # What is Binary?
@@ -120,5 +121,64 @@ In decimal, each digit has to take up space in which at least 10 distinct permut
 Binary is different&mdash;you only need to fit two possible permutations for each digit, meaning you can get it to fit in as small a space as you can signify 2 possibilities (like empty space or a dot).
 
 Now there is one weird thing you may have noticed about that last equation.
+The binary number had a `0` at the front. 
+That zero doesn't give the number any additional meaning, so why is it there?
+When computers store numbers, they store all the 'digits' in a line.
+It'd be the equivalent of writing down the numbers `99`, `310`, and `1003` as `993101003`.
+There's no way to tell where one value and another begins. 
+The solution is to use set digit lengths. 
+In the example above, we could make each number 4 digits long, storing them as `009903101003`.
+Knowing the digit length, it's easy to tell that the values are `99`, `310`, and `1003`.
+When numbers are stored by computers, they're likewise stored with set lengths.
+While the lengths fluctuated in the early days of computers, they now almost universally use the size of 8 binary digits.
+This grouping of 8 binary digits, or 'bits,' is called a 'byte.'
 
+There's an obvious problem with the set length system; a maximum value. 
+In the base 10 example, you can't store a number greater than `9999`&mdash;`10000` total values (including `0000`).
+With the 8-bit byte, you can't store numbers greater than `255`&mdash;256 possibilities.
+256 is an impractically small number to work with; to get more we have to use multiple bytes.
+On most computers, the `int` type is 4 bytes (32 bits), with `4294967296` (256^4) possibilities. 
+We never really escape the maximum value problem, only make the maximum large enough that it's not relevant. 
 
+There's another problem though&mdash;negative numbers.
+Unlike when we write numbers out, we can't just prepend our number with a negative sign; we only have 2 permutations, 0 and 1, and neither of them are a negative sign.
+So I have bad news about our 429467296-possibility integer can't count to 429467295.
+We have to make the first bit declare negative or positive. 
+A 0 means positive, while 1 is negative. 
+The positive numbers work like you'd expect them to; the integer now maxxing out at 2147483647 since the first bit can't be used to store the value.
+Negative numbers are more interesting.
+Rather than count down from 0 like we do, they count up from the minimum value of the number. 
+-1 is when all the digits are 1&mdash;what would have been the maximum value if the digit were unsigned.
+-2 is one less than the maximum value (i.e. 11111&hellip;110), and -3 one less than that (11111&hellip;101). 
+Because of this system, normal addition and subtraction mechanics work the same way regardless of whether the number is signed or unsigned.
+
+The only problem we have left is when we're *at* the maximum value and try to add one more. 
+Theoretically, 01111&hellip;111 will become 10000&hellip;000, the *lowest* value possible (-2147483648 in the case of a 4 byte integer).
+Luckily, a lot of modern programming languages will catch you when you try and exceed the maximum, throwing an error rather than converting to a negative number.
+
+## So How Do Computers Store Other Things?
+
+The short answer is that everything is a number.
+Take this text. Every character has a specific number associated with it. 
+T is 84, a is 97, k is 107, and so on. 
+The computer just stores those numbers, but the program interpretting them knows that they're text and displays them on your screen.
+Now you may be wondering why our standard length number is 8 bits; something impractically small for most math.
+Well, all the characters on a standard American keyboard (plus the 32 control characters that aren't used any more but are still included in the set) don't add up to 256, which means an 8-bit byte is more than capable of storing a basic character.
+The standard mappings of characters on your keyboard and the numbers they're stored as are known as 'ascii.'
+If you google 'ascii table' you can find that listing. 
+But we've got a problem; there's more than just American English, and sometimes you need some weird character like &#233; or a special symbol, like those emdashes I'm so fond of. 
+If you add all those various symbols together, you get a number many *many* orders of magnitude greater than 256.
+I'll skip over the details, but since most characters aren't special like that, they're stored as 8-bit. Then, after a certain size, the 8 bit number tells the program interpretting the text that it's actually 2 bytes (16 bits) long, thus doubleing the possibilities. 
+Rinse and repeat, and you've got quite a large number of possibilites for characters without having to store every character with a high bit count.
+
+What about colors? Well, one common way of storing colors is via RGB. 
+Red, green, and blue make up the Positive Primary Colors, and you can get any color projected with light by combining different strength of red, green, and blue light.
+To store a color in RGB, the computer stores a number for red, blue, and green. 
+In a lot of cases a perfect hue isn't needed (we meatbags can't really tell the difference between 31% red and 31.01% red), so computers just store each color value as a single byte.
+Have you ever used color hex codes? If you don't know what I'm talking about, that's fine, but when you're working with CSS and you need to specify a color, you use a hex code. It typically looks something like this: <span style="background-color:#ef8231;color:#000;">#ef8231</span>, which is a weird orangish color. 
+Now, this is actually a set of three hexidecimal values with a maximum digit length of 2.
+The 2 character maximum value for a hexidecimal number is&hellip; ff, or 255. 256 possibilities from 0 to ff, exactly one byte.
+
+## Concluding Thoughts
+
+I've skipped over a lot and oversimplified even more, but I hope this helps you understand what all is going on under the hood of your computer.
