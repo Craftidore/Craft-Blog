@@ -132,6 +132,11 @@ canvas.logo {
   }
 }
 
+div.math {
+  width: fit-content;
+  margin: auto;
+}
+
 html {
   --mainText: #888;
   --mainBackground: #111;
@@ -190,6 +195,9 @@ html #sidebar li:hover a, html #sidebar li:hover a:visited {
 html #sidebar li a, html #sidebar li a:visited {
   color: var(--mainAccent);
 }
+html .math > img {
+  filter: invert(52%) sepia(5%) saturate(0%) hue-rotate(280deg) brightness(96%) contrast(87%);
+}
 
 html.code {
   --mainBackground: #010101;
@@ -197,6 +205,9 @@ html.code {
   --mainAccent: #1FC742;
   --codeBackground: hsl(0, 0%, 8%);
   --codeColor: #000;
+}
+html.code .math > img {
+  filter: invert(67%) sepia(11%) saturate(4878%) hue-rotate(80deg) brightness(92%) contrast(86%);
 }
 
 /*# sourceMappingURL=style.css.map */

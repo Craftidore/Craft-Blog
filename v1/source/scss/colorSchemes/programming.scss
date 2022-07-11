@@ -4,4 +4,7 @@ html.code {
     --mainAccent: #1FC742;
     --codeBackground: hsl(0, 0%, 8%);
     --codeColor: #000;
+    .math > img {
+	filter: invert(67%) sepia(11%) saturate(4878%) hue-rotate(80deg) brightness(92%) contrast(86%);
+    }
 }

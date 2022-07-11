@@ -18,6 +18,7 @@ There are ten symbols (0-9) and when we get to the end of them, we represent the
 The first symbol is the 'tens' and the second is the 'ones.'
 You know this&mdash;if you're a human in the twenty-first century then you probably use numbers greater than ten on a daily basis&mdash;so why am I telling you this?
 Well there's nothing particularly special about the number ten.
+<<<<<<< HEAD
 We could count with twelve symbols and increment on the twelfth. 
 Base Twelve would be [much more convenient](https://www.youtube.com/watch?v=U6xJfP7-HCc) than base 10, at least when doing math in one's head.
 
@@ -182,3 +183,7 @@ The 2 character maximum value for a hexidecimal number is&hellip; ff, or 255. 25
 ## Concluding Thoughts
 
 I've skipped over a lot and oversimplified even more, but I hope this helps you understand what all is going on under the hood of your computer.
+=======
+
+
+>>>>>>> scsschanges
