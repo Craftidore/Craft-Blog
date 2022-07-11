@@ -183,7 +183,3 @@ The 2 character maximum value for a hexidecimal number is&hellip; ff, or 255. 25
 ## Concluding Thoughts
 
 I've skipped over a lot and oversimplified even more, but I hope this helps you understand what all is going on under the hood of your computer.
-=======
-
-
->>>>>>> scsschanges
