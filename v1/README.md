@@ -8,5 +8,7 @@ Quite a bit of code has also been stolen from various [StackOverflow](https://st
 ## Notes to Self
 
 - [PrismJS Packages](https://prismjs.com/download.html#themes=prism-twilight&languages=markup+css+clike+javascript+bash+c+csharp+cpp+coffeescript+csv+docker+git+go+http+java+json+latex+lisp+markdown+markup-templating+perl+php+python+regex+ruby+rust+scss+sql+typescript+vim+xml-doc+yaml&plugins=toolbar+copy-to-clipboard) - If I need languages other than these, I'll need to redownload it.
+- [LaTeX to SVG](https://viereck.ch/latex-to-svg/) and [SVG to Base64](https://codebeautify.org/svg-to-base64-converter) for Math.
+- [Hex to CSS Filter tool](https://codepen.io/sosuke/pen/Pjoqqp) for figuring out the filter to make LaTeX SVGs the same color as normal text. 
 
 
