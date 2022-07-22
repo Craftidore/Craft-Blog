@@ -17,5 +17,24 @@ There are ten symbols (0-9) and when we get to the end of them, we represent the
 The first symbol is the 'tens' and the second is the 'ones.'
 You know this&mdash;if you're a human in the twenty-first century then you probably use numbers greater than ten on a daily basis&mdash;so why am I telling you this?
 Well there's nothing particularly special about the number ten.
+We use it as our 'base,' but we could just as easily use a different number.
+Many people argue that we should be using the [duodecimal system](https://www.youtube.com/watch?v=U6xJfP7-HCc)&mdah;base 12.
+So what is binary? 
+Well, it's counting in base 2.
 
+When counting in base 2, there are only 2 symbols&mdash;`0` and `1`. 
+First we have `0=0`, then `1=1`, but then we run out of symbols in binary and have to move to the next column. 
+`2=10`, a 2 digit number. Then three, `3=11`.
+Yet again, we're out of symbols so we now need 3 columns: `4=100`.
+Then `5=101`, and `6=110`, and `7=111`.
+Another column and we have `8=1000`.
+I think you see the pattern.
 
+## How Computers Store Numbers
+
+Computers store numbers in binary. 
+At first glance this may seem like an odd choice&mdash;when we write a number out in binary it takes up way more space than a number in, say, decimal.
+243 in decimal is 11110011 in binary, over twice as many digits.
+What we ignore is that in the 1 by 2 centimeter area that we might write `1` or `2` can fit a nigh-infinite number of slightly different symbols. 
+If we assigned every one of those infinite slightly different symbols a different value (i.e. base-&#8734;), we'd be able to fit basically any number into the space of one character.
+Well, you don't have to write out a `1` or a `0`, you could just allocate a tiny pinpoint of your piece of paper for that digit, and if the pinpoint has a dot, it's a 1, empty, 0. Now you can 'fit' way more binary data into 
