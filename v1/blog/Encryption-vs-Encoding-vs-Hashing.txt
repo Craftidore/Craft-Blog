@@ -111,9 +111,13 @@ Base64 lets you put non-text data into a text file, but it also makes the data t
 
 The reason I bring this up is that **Base64 is not encryption**.
 `Hello World!` converts to `SGVsbG8gV29ybGQh`. 
+<<<<<<< HEAD:v1/blog/Encryption-vs-Encoding-vs-Hashing.txt
 It looks like garbage and 'garbage' only has meaning if you know the formula is encrypted, so why isn't Base64 encryption?
+=======
+It looks like garbage but has meaning if you know the formula, which sounds like encryption, so why isn't Base64 encryption?
+>>>>>>> main:v1/blog/Encryption-vs-Encoding-vs-Hashing.md
 Encryption algorithms use 'keys' to generate unique formulas that no one who doesn't have the key knows, but Base64 encoding is always the same formula. 
-If you 'encrypt' data with Base64, anyone can go put that data into a [Base64 Decorder](https://www.base64decode.org/) and the original data out.
+If you 'encrypt' data with Base64, anyone can go put that data into a [Base64 Decoder](https://www.base64decode.org/) and the original data out.
 
 ## Hashing
 
