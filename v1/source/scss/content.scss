@@ -1,8 +1,18 @@
 @use './utils.scss';
 
 #content {
+    @include utils.phone() {
+        // hacky. Please fix:
+        img {
+            max-width: 98%;
+        }
+    }
     @include utils.tablet(){
         width: 50%;
+        // maybe there's a better way to do this:
+        img {
+            max-width: 50vw;
+        }
     }
     @include utils.desktop(){
         width: 500px;
