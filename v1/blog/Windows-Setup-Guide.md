@@ -2,6 +2,59 @@
 
 *Setting up Windows for use as a programmer, by a GNU/Linux user. Expect Sarcasm.*
 
+## Table of Contents
+
+- [Quick Notes About Me](#quick-notes-about-me)
+- [Quick Notes About This Article](#quick-notes-about-this-article)
+- [Phase 0 &mdash; Initial Setup Questions](#phase-0--initial-setup-questions)
+    - [The Microsoft Account](#the-microsoft-account)
+    - [Diagnostics](#diagnostics)
+- [Phase 1 &mdash; Uninstalling Windows Junk](#phase-1--uninstalling-windows-junk)
+    - [Stuff to get out of the way](#stuff-to-get-out-of-the-way)
+        - [The Start Menu](#the-start-menu)
+        - [The Taskbar](#the-taskbar)
+        - [Personalization](#personalization)
+    - [Uninstalling Things](#uninstalling-things)
+        - [Uninstalling Edge](#uninstalling-edge)
+        - [Uninstalling Other Programs](#uninstalling-other-programs)
+            - [A couple of exceptions](#a-couple-of-exceptions)
+            - [Final Thoughts](#final-thoughts)
+    - [Some Setting Defaults To Change](#some-setting-defaults-to-change)
+- [Phase 2 &mdash; What Is FOSS? Why Do We Care? Also, Installing Things](#phase-2--what-is-foss-why-do-we-care-also-installing-things)
+    - [Package Manager](#package-manager)
+    - [Choosing A Browser](#choosing-a-browser)
+        - [Google Chrome](#google-chrome)
+        - [Ungoogled Chromium](#ungoogled-chromium)
+        - [Brave](#brave)
+        - [Firefox](#firefox)
+        - [Librewolf](#librewolf)
+        - [Vivaldi](#vivaldi)
+        - [Some Final Notes On Browsers](#some-final-notes-on-browsers)
+    - [Text Editor](#text-editor)
+        - [Notepad++](#notepad)
+        - [Micro](#micro)
+        - [Vim](#vim)
+        - [Concerning Code Editors and IDEs](#concerning-code-editors-and-ides)
+            - [VSCode](#vscode)
+    - [Git](#git)
+        - [After Installing Git](#after-installing-git)
+        - [GitHub](#github)
+    - [Quick Scripting Language](#quick-scripting-language)
+        - [Python](#python)
+        - [JavaScript](#javascript)
+        - [A Note On Pip and NPM](#a-note-on-pip-and-npm)
+- [Phase 3 &mdash; Installing Other Programs](#phase-3--installing-other-programs)
+    - [Obsidian](#obsidian)
+    - [AutoHotKey](#autohotkey---ahk)
+    - [Espanso](#espanso)
+    - [LaTeX](#latex-) &mdash; This section is still under construction.
+    - [Pandoc](#pandoc)
+    - [OnlyOffice](#onlyoffice)
+- [Writer's Note](#writers-note)
+
+    
+
+
 ## Quick Notes About Me
 
 **I am not qualified to write this article**. 
@@ -156,7 +209,7 @@ setup --uninstall --force-uninstall --system-level
 Edge should be gone now.
 It'll still show up in the Installed Apps, but if the box where Edge's logo goes is just a blue square, it's gone.
 
-#### Other programs
+#### Uninstalling Other programs
 
 Close Settings then open up the search and type 'Add or Remove Programs.'
 Alternatively you can go Settings → Apps → Installed Apps.
@@ -214,7 +267,7 @@ Some mandatory orders:
 	- Turn off Show search highlights.
 - In Settings → Apps → Startup, make sure nothing you're not absolutely sure you want to start up on start up is set to on. If you don't know, the answer is that it shouldn't start up. Remember, you can always change this later.
 
-### Phase 2 &mdash; What is Foss? Why Do We Care? Also, Installing Things.
+## Phase 2 &mdash; What is Foss? Why Do We Care? Also, Installing Things.
 
 Most software on Windows is proprietary (aka 'closed source'). 
 Windows itself is proprietary. 
@@ -240,7 +293,7 @@ I use a mostly FOSS Operating System (I use Linux, but I have Nvidia graphics dr
 Going forward, as I suggest programs to install, I'm going to be pointing out what is and isn't FOSS. 
 It's up to you what you want to install, but even when you choose a proprietary keep in mind the FOSS options.
 
-#### Package manager
+### Package manager
 
 Windows doesn't come with a package manager&hellip; a huge shortcoming. 
 Luckily people have created package managers for Windows.
@@ -300,7 +353,7 @@ To update packages, run `scoop update *`.
 To uninstall, run `scoop uninstall packagename`.
 For more info, run `scoop --help`. 
 
-#### Choosing A Browser
+### Choosing A Browser
 
 It'll be pretty difficult to live in this world without a browser. 
 Windows comes with Edge as it's default. 
@@ -329,7 +382,7 @@ On the other hand, Chrome/Chromium has a monopoly on the browser market, and it 
 
 So anyway, some browser suggestions:
 
-##### Google Chrome
+#### Google Chrome
 
 Google's Chrome browser.
 
@@ -344,7 +397,7 @@ Conclusion: I wouldn't use it, but if you want a browser you can install and not
 scoop install googlechrome
 ```
 
-##### Ungoogled Chromium
+#### Ungoogled Chromium
 
 Google Chrome minus Google. 
 I haven't looked into it much, but [here's a link](https://github.com/ungoogled-software/ungoogled-chromium) if you're interested.
@@ -354,7 +407,7 @@ If you really want the Google Chrome experience, maybe look into this instead. I
 scoop install ungoogled-chromium
 ```
 
-##### Brave
+#### Brave
 
 Brave is a privacy-first open-source browser that automatically blocks trackers and ads.
 
@@ -371,7 +424,7 @@ Brave is what I use as my main browser right now; it's not perfect, it's just be
 scoop install brave
 ```
 
-##### Firefox
+#### Firefox
 
 Firefox, the default web browser on almost all Linux distros.
 
@@ -386,7 +439,7 @@ Firefox, the default web browser on almost all Linux distros.
 scoop install firefox
 ```
 
-##### Librewolf
+#### Librewolf
 
 Full disclosure: I haven't used this one for long enough to really provide my own thoughts. 
 
@@ -398,7 +451,7 @@ Full disclosure: I haven't used this one for long enough to really provide my ow
 scoop install librewolf
 ```
 
-##### Vivaldi
+#### Vivaldi
 
 I also haven't used Vivaldi, but I know there are a *lot* of people who really love it. 
 It's highly customizable and has some stellar features that set it apart from most web browsers&mdash;things like tab-stacking. It's the perfect browser for people who open way too many tabs.
@@ -413,7 +466,7 @@ It's highly customizable and has some stellar features that set it apart from mo
 scoop install vivaldi
 ```
 
-##### Some final notes on browsers
+#### Some final notes on browsers
 
 I'm not an expert on browsers. I knew this.
 After writing this section of the article, I realized I'm *really* not an expert on browsers. 
@@ -433,9 +486,9 @@ This has the obvious benefit of if one suddenly stopped working, you can easily 
 The reason to have one be firefox-based and one chromium-based is that firefox and chromium work differently. Sometimes you'll come across a website, that for a weird edge-case-y reason, doesn't work right on one of them. 
 Having that second browser that doesn't work the same behind the scenes can sometimes get the website to work right.
 
-##### A Final Note
+<!-- #### A Final Note -->
 
-#### Text Editor
+### Text Editor
 
 Code is written in plain-text files. 
 To edit text files, you need a text editor. 
@@ -477,7 +530,7 @@ More on this when I mention Vim.
 
 I only mention 3 text editors here—there are way more out there, and if none of these fit your bill, go ahead and find a better one.
 
-##### Notepad++
+#### Notepad++
 
 Notepad++ is a FOSS notepad alternative that improves the text editing experience in a lot of ways. Windows-only.
 This was my main text editor for quite awhile. 
@@ -494,7 +547,7 @@ It gets the job done and, as a GUI application, is a more familiar experience fo
 scoop install notepadplusplus
 ```
 
-##### Micro
+#### Micro
 
 Micro is a handy terminal-based text editor. It was originally designed for Linux to provide an intuitive terminal-based text editor. It also run on Windows, so I thought I'd mention it.
 For most people, this would make a pretty good text editor, though I don't use it.
@@ -508,7 +561,7 @@ For most people, this would make a pretty good text editor, though I don't use i
 scoop install micro
 ```
 
-##### Vim
+#### Vim
 
 Vim is&hellip; different from the rest of these.
 Notepad++ and Micro are text editors that I suggest to most people. 
@@ -563,7 +616,7 @@ syntax on
 This is a set of hopefully non-overwhelming settings to get you started.
 Uncomment any lines with settings you'd like.
 
-##### Concerning Code Editors and IDEs
+#### Concerning Code Editors and IDEs
 
 Code editors like VSCode and IDEs like PyCharm or Visual Studio are GUI-based programs for editing files of code.
 IDEs, or Integrated Development Environments, are graphical editors that let you write code, compile, debug, and test, all within the one program. 
@@ -577,7 +630,7 @@ VSCode, for example, has a plugin for just about every language&mdash;you can wr
 Code Editors and IDEs are often better than text editors when you have a folder with a bunch of different code files you want to modify.
 Text editors on the other hand, are often more straightforward for editing single files.
 
-###### VSCode
+##### VSCode
 
 VSCode is a Microsoft project. 
 It's code is open-source, but with a little asterisk:
@@ -588,7 +641,7 @@ Luckily, there's a fork of VSCode that doesn't have that Microsoft's proprietary
 scoop install vscodium
 ```
 
-#### Git
+### Git
 
 Next thing you'll want is version control software. 
 In other places, I gave you options. 
@@ -615,7 +668,7 @@ Git is normally run via the terminal, but as I said, it's hard.
 Because of this, a lot of GUIs (graphical user interfaces) for git exist. 
 I'm not actually going to list any&mdash;I really think it's better to learn how to use it in the terminal&mdash;you really get a better, more comprehensive, understanding of it that way.
 
-##### After installing git
+#### After installing git
 
 You'll want to set your git editor. 
 <span id="git-terminal-editor">I'd suggest a terminal-based text editor, be that micro or vim or something else, since git is a command line program and it's jarring for a GUI to open up. </span>
@@ -630,7 +683,7 @@ git config --global user.name Craftidore
 git config --global user.email example@example.com
 ```
 
-##### GitHub
+#### GitHub
 
 [Github](https://github.com) is an online service that lets you remotely host your git repositories. 
 It's become the standard for this. It adds a lot of additional features to that of git, really helping with collaboration.
@@ -642,7 +695,7 @@ Unfortunately, there aren't a lot of good alternatives.
 If you decide to create  GitHub account, you'll have an easy way to back your code (or anything else plain text that you version control with git) up or collaborate with others on it.
 Chances are, your university or the company you wind up working for after college will have you make a GitHub account anyway.
 
-#### Quick Scripting Language
+### Quick Scripting Language
 
 As you start to learn programming, you'll eventually get to a point where you think about a task you could do by hand, but it would take awhile, and you think to yourself 'boy, it'd be faster if I just wrote a program that did this one specific thing.' 
 This is especially true if you need to do that thing often&mdash;for example, every time I post something new to the blog, I have to update the RSS feed for it. Manually updating the feed'd probably take a solid 15 minutes. Instead I wrote a python script that reads some YAML metadata from each blog post, puts them in order, and outputs the relevant data into `/v1/feed.rss`. Making the script probably took me about an hour, but I've already put out 5 articles so the time investment's already paid for itself.
@@ -650,7 +703,7 @@ This is especially true if you need to do that thing often&mdash;for example, ev
 Different programming languages are better at different things, and chances are whatever language you're learning during your freshman year isn't going to be great for 'quick scripting' as I call it.
 Languages that are good for quick scripting are usually interpreted instead of compiled (if you don't know what that means, it's fine), and have a lot of built-in libraries.
 
-##### Python
+#### Python
 
 Python is a fairly easy-to-learn programming language. 
 It's used in a lot of places nowadays, and comes with a lot of built-in libraries to do things so you don't have to figure it out on the fly.
@@ -667,7 +720,7 @@ Now when you click on python files, you'll be brought into this editor. From the
 
 You can also run python files while in the terminal with `python filename.py`.
 
-##### JavaScript
+#### JavaScript
 
 Javascript is another of those easy-to-learn high-level interpreted languages. 
 I haven't used it for quick scripting much, but I know people who love using it for that.
@@ -678,19 +731,19 @@ Javascript is a bit weird at times (type coercion rules cause some [weirdly nons
 scoop install nodejs
 ```
 
-##### A Note on Pip and npm
+#### A Note on Pip and npm
 
 Python comes with it's own package manager, similar to scoop, called `pip`.
 Pip is usually used to install python modules with the format `pip install nameofmodule` (i.e. `pip install pygame`).
 NodeJS also comes with it's own package manager&mdash;Node Package Manager or `npm`.
 If something you're looking at tells you to install via npm or pip, you don't need to install those separately&mdash;they come with nodejs and python.
 
-### Other Programs
+## Phase 3 &mdash; Installing Other Programs
 
 Here is where the dogma ends. 
 The following programs are ones I personally find useful, but are by no means *necessary*.
 
-#### Obsidian
+### Obsidian
 
 Obsidian is a note-taking app.
 Obsidian isn't FOSS, but it is free for personal use and it doesn't track you, collect telemetry, etc.
@@ -707,7 +760,7 @@ If you want a super complex setup, with scripts and templates and tags, you can 
 Most of it's features are easily disabled if you don't want them.
 Obsidian is exceedingly powerful at it's core, but, because under the surface it works with HTML, CSS, and JS, once you take Web Dev 1 (or the equivalent course), you'll find you can do just about anything within Obsidian.
 
-#### AutoHotkey - AHK
+### AutoHotkey - AHK
 
 There are very *very* few things I miss about Windows, but AutoHotkey (often abreviated AHK) is one of them.
 AutoHotkey was created to be a scripting language for assigning behavior to hotkeys on a system-wide level.
@@ -738,7 +791,7 @@ This lets me keep a little executable on a thumb drive on my keychain that I can
 
 AHK is FOSS and Windows-only.
 
-#### Espanso
+### Espanso
 
 Espanso is a Free and Open Source text-expander.
 What is a text expander you ask? 
@@ -777,7 +830,7 @@ The documentation for setting up your own config and list of match/replace strin
 Also, for the record, your config folder (referred to in the docs as `$CONFIG`) will be 
 `C:\Users\%Username%\scoop\apps\espanso-pre\current\.espanso\`.
 
-#### <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> %% LaTeX %%
+### <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> %% LaTeX %%
 
 LaTeX section still in progress. 
 It's a bit of a hard sell because LaTeX comes with a steep learning curve (even though I think it's well worth the time one spends learning it), and I want to make sure I argue well when I suggest it.
@@ -833,7 +886,7 @@ Additionally, overleaf.com has a number of tutorials as well as general [<span s
 -->
 
 
-#### Pandoc
+### Pandoc
 
 Pandoc is a really handy command-line utility for converting document formats. 
 Need to take a markdown file and make it into a word doc? Pandoc can do that.
@@ -848,7 +901,7 @@ Ergo:
 scoop install pandoc latex
 ```
 
-#### OnlyOffice
+### OnlyOffice
 
 [OnlyOffice](https://www.onlyoffice.com/) is a Office Suite developed to by highly compatible with the Microsoft Office suite. 
 I haven't actually used it a ton or tested out just how compatible with MS Word it is, but based on what I've read, the compatibility is very high.
