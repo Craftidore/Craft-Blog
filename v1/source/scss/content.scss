@@ -6,10 +6,26 @@
     }
     @include utils.desktop(){
         width: 500px;
+        img {
+            max-width: 500px;
+        }
+    }
+    @include utils.bigdesktop(){
+        width: 700px;
+        img {
+            max-width: 700px;
+        }
     }
     @include utils.tabletordesktop(){
 	    position:absolute;
 	    left: 50%;
 	    transform: translate(-50%, 0);
+    }
+
+    $font-size: (2.00em, 1.60em, 1.37em, 1.25em, 1.12em, 1.12em);
+    @for $i from 1 through 6 {
+      h#{$i} {
+        font-size: nth($font-size, $i);
+      }
     }
 }

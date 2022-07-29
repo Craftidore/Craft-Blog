@@ -27,7 +27,7 @@
         width: 20%;
         float: left;
     }
-    @include utils.desktop(){
+    @include utils.desktoporbigdesktop(){
         display: block !important;/*Yes, !important, but this is to counter on-element display:none;*/
         width: 28%;
         max-width: 400px;
