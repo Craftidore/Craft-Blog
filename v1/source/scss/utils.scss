@@ -19,7 +19,18 @@
     }
 }
 @mixin desktop{
+    @media (min-width: 1201px) and (max-width: 1700px) {
+        @content;
+    }
+}
+
+@mixin desktoporbigdesktop{
     @media (min-width: 1201px) {
+        @content;
+    }
+}
+@mixin bigdesktop{
+    @media (min-width: 1701px) {
         @content;
     }
 }

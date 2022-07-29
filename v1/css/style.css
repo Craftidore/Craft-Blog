@@ -113,9 +113,20 @@ canvas.logo {
     width: 50%;
   }
 }
-@media (min-width: 1201px) {
+@media (min-width: 1201px) and (max-width: 1700px) {
   #content {
     width: 500px;
+  }
+  #content img {
+    max-width: 500px;
+  }
+}
+@media (min-width: 1701px) {
+  #content {
+    width: 700px;
+  }
+  #content img {
+    max-width: 700px;
   }
 }
 @media (min-width: 701px) {
@@ -124,6 +135,24 @@ canvas.logo {
     left: 50%;
     transform: translate(-50%, 0);
   }
+}
+#content h1 {
+  font-size: 2em;
+}
+#content h2 {
+  font-size: 1.6em;
+}
+#content h3 {
+  font-size: 1.37em;
+}
+#content h4 {
+  font-size: 1.25em;
+}
+#content h5 {
+  font-size: 1.12em;
+}
+#content h6 {
+  font-size: 1.12em;
 }
 
 div.math {
@@ -136,11 +165,19 @@ html {
   --mainBackground: #111;
   --mainAccent: #808;
   --codeBackground: #080808;
+  --linkColor: #808;
+  --linkColorVisited: #b0b;
   background-color: var(--mainBackground);
   color: var(--mainText);
 }
 html .hamburger-menu .line {
   background-color: var(--mainAccent);
+}
+html #content a {
+  color: var(--linkColor);
+}
+html #content a:visited {
+  color: var(--linkColorVisited);
 }
 html pre {
   background: var(--codeBackground);
@@ -199,6 +236,8 @@ html.code {
   --mainAccent: #1FC742;
   --codeBackground: hsl(0, 0%, 8%);
   --codeColor: #000;
+  --linkColor: #083;
+  --linkColorVisted: #3b3;
 }
 html.code .math > img {
   filter: invert(67%) sepia(11%) saturate(4878%) hue-rotate(80deg) brightness(92%) contrast(86%);

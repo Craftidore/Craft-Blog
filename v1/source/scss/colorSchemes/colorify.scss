@@ -3,10 +3,18 @@ html {
     --mainBackground: #111;
     --mainAccent: #808;
     --codeBackground: #080808;
+    --linkColor: #808;
+    --linkColorVisited: #b0b;
     background-color: var(--mainBackground);
     color: var(--mainText);
     .hamburger-menu .line {
         background-color: var(--mainAccent);
+    }
+    #content a {
+        color: var(--linkColor);
+        &:visited {
+                color: var(--linkColorVisited);
+        }
     }
     pre {
         background: var(--codeBackground);
