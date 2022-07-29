@@ -23,7 +23,6 @@ canvas.logo {
   .titlebar .title {
     display: none;
   }
-
   .titlebar canvas.logo {
     margin-left: 80%;
     margin-top: 8px;
@@ -36,7 +35,6 @@ canvas.logo {
     text-align: center;
     font-size: 40px;
   }
-
   .titlebar .logo {
     margin-left: 80%;
     position: absolute;
@@ -60,8 +58,7 @@ canvas.logo {
 }
 @media (max-width: 700px) {
   #sidebar {
-    display: none;
-    /*this will get overriden in the dom by js*/
+    display: none; /*this will get overriden in the dom by js*/
     position: absolute;
     left: 0;
     opacity: 80%;
@@ -72,16 +69,14 @@ canvas.logo {
 }
 @media (min-width: 701px) and (max-width: 1200px) {
   #sidebar {
-    display: block !important;
-    /*Yes, !important, but this is to counter on-element display:none;*/
+    display: block !important; /*Yes, !important, but this is to counter on-element display:none;*/
     width: 20%;
     float: left;
   }
 }
 @media (min-width: 1201px) {
   #sidebar {
-    display: block !important;
-    /*Yes, !important, but this is to counter on-element display:none;*/
+    display: block !important; /*Yes, !important, but this is to counter on-element display:none;*/
     width: 28%;
     max-width: 400px;
     float: left;
@@ -106,7 +101,6 @@ canvas.logo {
     flex-direction: column;
     justify-content: space-between;
   }
-
   .hamburger-menu .line {
     width: 35px;
     height: 5px;
