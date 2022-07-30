@@ -459,7 +459,13 @@ It's highly customizable and has some stellar features that set it apart from mo
 - <span style="color:red;">Proprietary, not FOSS</span>
 - Chromium-based
 - <span style="color:green;">Excessive amount of customization</span>
-- <span style="color:green;">Excessive amount of browser features, like the aforementioned tab-stacking</span>
+- <span style="color:green;">Excessive amount of browser features.</span> Among them include
+    - Tab stacking
+    - Command Palette
+    - Customizable keyboard shorcuts
+    - Web panels
+    - Better performance than Chrome
+    - Even more features I don't know about
 - There's probably other bonuses too, but again, I haven't used it and am not really qualified to comment.
 
 ```powershell
