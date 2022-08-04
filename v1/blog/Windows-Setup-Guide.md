@@ -616,8 +616,11 @@ syntax on
 
 " By default, when you press tab, vim inserts a literal tab character. 
 " Tab displays as 8 spaces by default. Uncomment `set tabstop=4` and change the number to your desired tab length.
+" The settings below it do the same for similar tablike operations
 " To uncomment, remove the " character at the start of the line.
 "set tabstop=4
+"set softtabstop=4
+"set shiftwidth=4
 " If you want vim to insert spaces instead of tabs, uncomment the `set expandtab` line below.
 " The number of spaces is determined by the `set tabstop=` line above
 "set expandtab
@@ -633,9 +636,9 @@ Uncomment any lines with settings you'd like.
 #### Concerning Code Editors and IDEs
 
 Code editors like VSCode and IDEs like PyCharm or Visual Studio are GUI-based programs for editing files of code.
-IDEs, or Integrated Development Environments, are graphical editors that let you write code, compile, debug, and test, all within the one program. 
-IDEs tend to be designed with one (or a couple) specific language.
-I'm not suggesting any IDEs because I don't know what you'll be coding.
+IDEs, or Integrated Development Environments, let you write code, compile, debug, and test, all within the one program. 
+IDEs tend to be designed with one (or a couple) specific language in mind.
+I'm not suggesting any IDEs because I don't know what you'll be coding with.
 
 Code editors aren't IDEs (though they often get called that). 
 They often aren't designed exclusively for a few languages, but also don't have quite the same level of integration with a language as an IDE would. 
@@ -846,9 +849,9 @@ Also, for the record, your config folder (referred to in the docs as `$CONFIG`) 
 
 ### <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> %% LaTeX %%
 
-LaTeX section still in progress. 
-It's a bit of a hard sell because LaTeX comes with a steep learning curve (even though I think it's well worth the time one spends learning it), and I want to make sure I argue well when I suggest it.
-Until then, enjoy [this video](https://www.youtube.com/watch?v=9eLjt5Lrocw) where one guy explains both what LaTeX is and why it's great for writing papers.
+<span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span>%%LaTeX%% section still in progress. 
+It's a bit of a hard sell because <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span>%%LaTeX%% comes with a steep learning curve (even though I think it's well worth the time one spends learning it), and I want to make sure I argue well when I suggest it.
+Until then, enjoy [this video](https://www.youtube.com/watch?v=9eLjt5Lrocw) where one guy explains both what <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span>%%LaTeX%% is and why it's great for writing papers.
 
 <!--
 <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> (pronounced 'lah-tech' or sometimes 'lay-tech' but never 'lay-tex') is software system for creating documents. It's old, originally created almost 40 years ago at the time of writing this article (1984).
@@ -905,10 +908,10 @@ Additionally, overleaf.com has a number of tutorials as well as general [<span s
 Pandoc is a really handy command-line utility for converting document formats. 
 Need to take a markdown file and make it into a word doc? Pandoc can do that.
 Have a word doc that you need to be a pdf? Pandoc can do that.
-Did someone send you a LaTeX document and you want it formatted as something&mdash;anything&mdash;else? Pandoc can do that.
+Did someone send you a <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span>%%LaTeX%% document and you want it formatted as something&mdash;anything&mdash;else? Pandoc can do that.
 
 Details on what pandoc can convert to and from are found [here](https://pandoc.org).
-To use pandoc for anything pdf-related, you'll need latex installed to.
+To use pandoc for anything pdf-related, you'll need latex installed too.
 Ergo:
 
 ```powershell
