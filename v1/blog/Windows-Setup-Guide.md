@@ -277,9 +277,9 @@ Either the software is a product (and costs money, like the Microsoft Office sui
 In some cases (like the entirety of the Windows Operating System), the software costs money *and still spies on you*.
 
 FOSS stands for 'Free and Open Source.'
-The 'free' part seems pretty straightforward—anyone can use it.
-The second part—open source—means that all of the code for something can be viewed by anyone. 
-You can ensure that it's not doing anything harmful or malicious. 
+The 'free' part refers not to cost but to what you can do with it. You're free to do whatever you want with it, including modifying the source code of the app. There aren't 'terms and conditions' you have to follow.
+The second part—open source—means that all of the code for something can be viewed by anyone. This is necessary for the 'free' part of Free and Open Source.
+In addition to modifying the code if you need to, you can ensure that it's not doing anything harmful or malicious. 
 Furthermore, you can compile the code yourself to *make sure* that the program itself *is* compiled from the code and does what is says it will.
 This is important, because just because a program binary *claims* to be compiled from a certain source doesn't mean it *actually is* compiled from that source.
 
@@ -288,10 +288,18 @@ Sometimes a program doesn't have a FOSS alternative, or the FOSS alternative doe
 You have to choose between the practicality of proprietary software and the idealism of FOSS.
 It's not always an easy choice, and I don't really have a good answer.
 
-I use a mostly FOSS Operating System (I use Linux, but I have Nvidia graphics drivers that aren't open source, for example), and try to use FOSS software when I can, but I certainly use a fair bit of proprietary software as well, even some that I'm quite certain is spying on me. 
+Unfortunately, the world isn't simple enough to just declare FOSS applications better than proprietary ones.
+While, in my experience, FOSS software has been far less likely to invade my privacy or do nefarious things, that doesn't mean FOSS software never does those things nor that proprietary always does.
+An example of this is Obsidian vs Logseq. Logseq and Obsidian are both note taking application that tend to fill the same niche of local-first plaintext notes.
+Logseq is open-source, but it has some baked-in telemetry. Compare this with Obsidian, which isn't open source, but has no telemetry and, aside from checking for app updates (which is easily disableable in the settings), never touches the internet if you don't tell it to. 
+Don't get me wrong, both Logseq and Obsidian do pretty well in regards to privacy&mdash;loads better than notetaking apps like Notion&mdash;but the FOSS app isn't actually the one with better privacy. 
+All things being equal, FOSS apps may be preferable, but all things are not equal and it's up to you to be an intelligent consumer.
+
+I use a mostly FOSS Operating System (I use Linux, but I have Nvidia graphics drivers that aren't open source, for example), and try to use FOSS software when I can, but I certainly use a fair bit of proprietary software as well, even some that probably *is* spying on me when I use it.
+I've decided on where I'm willing to make compromises.
 
 Going forward, as I suggest programs to install, I'm going to be pointing out what is and isn't FOSS. 
-It's up to you what you want to install, but even when you choose a proprietary keep in mind the FOSS options.
+It's up to you what you want to install, but even when you choose to use something proprietary keep in mind the FOSS options.
 
 ### Package manager
 
@@ -948,3 +956,24 @@ LaTeX:
 ```
 
 Anyway, now I can *finally* get rid of this Windows 11 Virtual Machine.
+
+### Bonus: Running Windows 11 in a Virtual Machine
+
+This isn't a guide to setting up a Virtual Machine&mdash;that's out of the scope of this article.
+However, in the process of setting up a VM for Windows 11 in order to test out the instructions in this article, the Windows Installer refused to install claiming that my system didn't meet the minimum requirements to run Windows 11. 
+In order to circumvent this I followed the steps outlined by [this article](https://blogs.oracle.com/virtualization/post/install-microsoft-windows-11-on-virtualbox). I'm summarizing the important bits here.
+
+Follow the first part of the Windows 11 install process&mdash;selecting your language and input method. 
+After hitting next, you'll be presented with an Install Now button.
+Hit `Shift+F10` to get the Windows Command Prompt, then type regedit.
+Inside the registry editor, open HKEY_LOCAL_MACHINE, then SYSTEM, then SETUP. 
+Under SETUP, create a new key called LabConfig.
+Inside LabConfig, create the following 3 `DWORD (32-bit)`s:
+
+- `BypassTPMCheck`
+- `BypassSecureBootCheck`
+- `BypassRAMCheck`
+
+Set each of them to `1`.
+
+Now you can close Registry Editor and the Command Prompt and continue with the install.
