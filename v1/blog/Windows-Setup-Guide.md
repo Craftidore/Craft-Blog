@@ -1,3 +1,8 @@
+---
+title: So you've got a fresh install of Windows
+date: "221103"
+time: "10:00"
+---
 # So you've got a fresh install of Windows&hellip;
 
 *Setting up Windows for use as a programmer, by a GNU/Linux user. Expect Sarcasm.*
