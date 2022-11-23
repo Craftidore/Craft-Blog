@@ -167,7 +167,7 @@ I use Dark Theme (because I'm not a monster), and I like purple for my accent co
 #### Uninstalling Edge
 
 Uninstalling Edge is hard. 
-Microsoft really doesn't want you to, and throws a lot of roadblocks in the way, like not allowing it to be installed via Add or Remove Programs.
+Microsoft really doesn't want you to, and throws a lot of roadblocks in the way, like not allowing it to be uninstalled via Add or Remove Programs.
 
 Before we uninstall Edge, let's get a web browser in case you have tech problems and need to google how to solve them.
 So, if you know what non-Edge browser you'd like (See [Choosing A Browser](#choosing-a-browser))
@@ -553,7 +553,7 @@ I only mention 3 text editors here&mdash;there are way more out there, and if no
 
 Notepad++ is a FOSS notepad alternative that improves the text editing experience in a lot of ways. Windows-only.
 This was my main text editor for quite awhile. 
-While I'm horrified every time I have to use it, it's a good application for most people. 
+While I'm traumatized every time I have to use it, it's a good application for most people. 
 It gets the job done and, as a GUI application, is a more familiar experience for most people.
 
 - <span style="color:green;">FOSS</span>
@@ -568,7 +568,7 @@ scoop install notepadplusplus
 
 #### Micro
 
-Micro is a handy terminal-based text editor. It was originally designed for Linux to provide an intuitive terminal-based text editor. It also run on Windows, so I thought I'd mention it.
+Micro is a handy terminal-based text editor. It was originally designed for Linux to provide an intuitive terminal-based text editor. It also runs on Windows, so I thought I'd mention it.
 For most people, this would make a pretty good text editor, though I don't use it.
 
 - <span style="color:green;">FOSS</span>
