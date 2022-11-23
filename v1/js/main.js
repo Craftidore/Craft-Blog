@@ -243,9 +243,9 @@ function addStylingClass(cssClass, clearFirst) {
 (function (global) {
     var yaml = {};
     var getFromFile = function (markdown) {
-        var yamlFrontmatter = /^---(\r|\n)((.|\r|\n)+)---/i.exec(markdown);
+        var yamlFrontmatter = /^---(?:\r|\n)((?:.|\r|\n)+?)---/i.exec(markdown);
         if (yamlFrontmatter) {
-            return yamlFrontmatter[2];
+            return yamlFrontmatter[1];
         }
         else { // pointless else, but added for clarification
             return "yaml: false";
