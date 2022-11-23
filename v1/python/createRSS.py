@@ -64,8 +64,8 @@ def renderItems(posts):
 def getBlogPosts():
     l = []
     for fileName in os.listdir(path="./blog/"):
-        if (not isfile(fileName)) and re.match(r".*\.txt$", fileName):
-            l.append(re.sub(r"(.*)\.txt$", "\\1", fileName))
+        if (not isfile(fileName)) and re.match(r".*\.md$", fileName):
+            l.append(re.sub(r"(.*)\.md$", "\\1", fileName))
         else:
             print(fileName + " is not a file")
     return l
@@ -73,7 +73,7 @@ def getBlogPosts():
 def getItems(fileNames):
     l = []
     for fileName in fileNames:
-        f = open(join("./blog/", fileName + ".txt"), "r")
+        f = open(join("./blog/", fileName + ".md"), "r")
         print("Reading " + fileName)
         markdown = f.read()
         f.close()
@@ -109,7 +109,7 @@ def getYaml(markdown):
     return (title, date, time, description)
     
 def getFrontmatter(markdown):
-    return re.compile(r"^---(\r|\n)((.|\r|\n)+)---").match(markdown)[2]
+    return re.compile(r"^---(?:\r|\n)((?:.|\r|\n)+?)---").match(markdown)[1]
 
 
 if __name__ == "__main__":
