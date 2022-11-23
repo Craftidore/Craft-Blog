@@ -1,6 +1,6 @@
 ---
-title: So you've got a fresh install of Windows
-date: "221103"
+title: "So you've got a fresh install of Windows"
+date: 221103
 time: "10:00"
 ---
 # So you've got a fresh install of Windows&hellip;
@@ -143,7 +143,7 @@ Disable 'Show recently added apps,' 'Show most used apps,' and 'Show recently op
 
 #### The Taskbar
 
-While we're in the Settings app, go to Personalization → Taskbar.
+While we're in the Settings app, go to Personalization &rarr; Taskbar.
 Disable Widgets and Chat. You don't need them and you don't want them.
 Task view I'd leave. It lets you see all the open apps at once, and also lets you switch virtual 'Desktops.' 
 Finally there's Search. You *can* leave it on, but you can also just click the Windows button and start typing; it does the same thing. 
@@ -159,7 +159,7 @@ Definitely disable the 'Show recent searches when I hover over the search icon.'
 
 #### Personalization
 
-Since we're already in Settings → Personalization,  go ahead and set the rest of your preferences.
+Since we're already in Settings &rarr; Personalization,  go ahead and set the rest of your preferences.
 I use Dark Theme (because I'm not a monster), and I like purple for my accent color. 
 
 ### Uninstalling things
@@ -173,7 +173,7 @@ Before we uninstall Edge, let's get a web browser in case you have tech problems
 So, if you know what non-Edge browser you'd like (See [Choosing A Browser](#choosing-a-browser))
 If you don't know, go ahead and get Firefox (you can always install a different one later).
 To install it, first follow the steps to install `scoop` in the [package manager](#package-manager) step of this guide, then install your browser with the command listed for your browser in [Choosing a Browser](#choosing-a-browser).
-Then you want to set it as your default web browser using Settings → Apps → Default Apps.
+Then you want to set it as your default web browser using Settings &rarr; Apps &rarr; Default Apps.
 Search up your web browser and it'll take you to a page of types of link extensions, and which app to open them in.
 You want them *all* to be the web browser you downloaded (or a text editor or image viewer, in a couple cases). 
 
@@ -217,7 +217,7 @@ It'll still show up in the Installed Apps, but if the box where Edge's logo goes
 #### Uninstalling Other programs
 
 Close Settings then open up the search and type 'Add or Remove Programs.'
-Alternatively you can go Settings → Apps → Installed Apps.
+Alternatively you can go Settings &rarr; Apps &rarr; Installed Apps.
 Here we want to uninstall as much as we possibly can.
 The app actually wouldn't let us uninstall Edge from here, hence the long complicated process above.
 I'm not going to go over every program, but here's some quick guidelines.
@@ -246,7 +246,7 @@ If you're worried about uninstalling these things, remember that you can always 
 
 On the topic of Microsoft Office&hellip;
 If you connected up a Microsoft account back in Phase 0 that will have or already has a purchased copy of Microsoft Office, then leave them installed.
-If you're not going to use Microsoft Office (or if you're going to use a copy distributed by your university, like most of the people I'm directing to this article) then uninstall it—you can always reinstall.
+If you're not going to use Microsoft Office (or if you're going to use a copy distributed by your university, like most of the people I'm directing to this article) then uninstall it&mdash;you can always reinstall.
 
 ### Some Setting Defaults To Change
 
@@ -254,23 +254,23 @@ I suggest going through *all* the settings and, at the very least, reading over 
 
 Some non-mandatory suggestions:
 
-- In Settings → System → Display, I'd set the scale to 100% if it isn't already (it often isn't on Surfacebooks and other devices with higher screen resolution than normal). Yes, the text will be smaller, but you'll be glad to have that much pixel room to play with.
-- In System → System → Multitasking, keep 'Snap windows' on.
+- In Settings &rarr; System &rarr; Display, I'd set the scale to 100% if it isn't already (it often isn't on Surfacebooks and other devices with higher screen resolution than normal). Yes, the text will be smaller, but you'll be glad to have that much pixel room to play with.
+- In System &rarr; System &rarr; Multitasking, keep 'Snap windows' on.
 - I would also rename your PC to something you'll recognize. 
 
 Some mandatory orders:
 
-- In Settings → Privacy and Security → For developers
+- In Settings &rarr; Privacy and Security &rarr; For developers
 	1. Select the 'File Explorer' category and turn all the options here on. <br>The most important options are 'show file extensions' and 'show hidden and system files', but they're all handy to turn on.
-	2. Under 'Terminal' select Windows Terminal, not 'Windows Console Host'. This lets you open multiple terminals in the same window as separate tabs—it's really handy.
+	2. Under 'Terminal' select Windows Terminal, not 'Windows Console Host'. This lets you open multiple terminals in the same window as separate tabs&mdash;it's really handy.
 	3. <span id="execution-policy">Under Powershell, set 'Change execution policy to allow local Powershell scripts to run without signing&hellip;' to on.</span>
-- In Settings → Privacy and Security → General, turn off 'Let Windows improve Start and search results by tracking app launches' and 'Show me suggested content in the settings app.' 'Let apps show me personalized ads by using my advertising ID' should already be off.
-- In Settings → Privacy and Security → Diagnostics and Feedback, most everything should already be off, but under Feedback, set 'Feedback frequency' to Never.
-- In Settings → Privacy and Security → Search permissions&hellip;
+- In Settings &rarr; Privacy and Security &rarr; General, turn off 'Let Windows improve Start and search results by tracking app launches' and 'Show me suggested content in the settings app.' 'Let apps show me personalized ads by using my advertising ID' should already be off.
+- In Settings &rarr; Privacy and Security &rarr; Diagnostics and Feedback, most everything should already be off, but under Feedback, set 'Feedback frequency' to Never.
+- In Settings &rarr; Privacy and Security &rarr; Search permissions&hellip;
 	- Set SafeSearch to Strict.
 	- Turn off Search history on this device.
 	- Turn off Show search highlights.
-- In Settings → Apps → Startup, make sure nothing you're not absolutely sure you want to start up on start up is set to on. If you don't know, the answer is that it shouldn't start up. Remember, you can always change this later.
+- In Settings &rarr; Apps &rarr; Startup, make sure nothing you're not absolutely sure you want to start up on start up is set to on. If you don't know, the answer is that it shouldn't start up. Remember, you can always change this later.
 
 ## Phase 2 &mdash; What is Foss? Why Do We Care? Also, Installing Things.
 
@@ -278,12 +278,12 @@ Most software on Windows is proprietary (aka 'closed source').
 Windows itself is proprietary. 
 The thing about proprietary software is that you don't really know what it's doing. 
 Say your running proprietary software. 
-Either the software is a product (and costs money, like the Microsoft Office suite) or the software isn't the product—you are, and the company is using you to collect user data.
+Either the software is a product (and costs money, like the Microsoft Office suite) or the software isn't the product&mdash;you are, and the company is using you to collect user data.
 In some cases (like the entirety of the Windows Operating System), the software costs money *and still spies on you*.
 
 FOSS stands for 'Free and Open Source.'
 The 'free' part refers not to cost but to what you can do with it. You're free to do whatever you want with it, including modifying the source code of the app. There aren't 'terms and conditions' you have to follow.
-The second part—open source—means that all of the code for something can be viewed by anyone. This is necessary for the 'free' part of Free and Open Source.
+The second part&mdash;open source&mdash;means that all of the code for something can be viewed by anyone. This is necessary for the 'free' part of Free and Open Source.
 In addition to modifying the code if you need to, you can ensure that it's not doing anything harmful or malicious. 
 Furthermore, you can compile the code yourself to *make sure* that the program itself *is* compiled from the code and does what is says it will.
 This is important, because just because a program binary *claims* to be compiled from a certain source doesn't mean it *actually is* compiled from that source.
@@ -426,7 +426,7 @@ Brave is a privacy-first open-source browser that automatically blocks trackers 
 
 - Chromium-based
 - <span style="color:green;">Open source</span>
-- <span style="color:red;">Have to disable some anonymized data reporting in settings—it does still track you much less than other browsers.</span>
+- <span style="color:red;">Have to disable some anonymized data reporting in settings&mdash;it does still track you much less than other browsers.</span>
 - <span style="color:yellow;">Has it's own search engine that doesn't track you&hellip; but also isn't as good as Google.</span>
 - <span style="color:red;">Does input it's own affiliate links sometimes</span>
 - <span style="color:green;">Built-in always-on tracker and ad blocker&mdash;I haven't had to deal with a youtube ad since.</span>
@@ -446,7 +446,7 @@ Firefox, the default web browser on almost all Linux distros.
 - <span style="color:red;">Uses google as the default search engine, rather than one like DuckDuckGo which doesn't track you. Google pays Firefox to make it the default.</span>
 	- This can be changed in settings, but defaults are powerful and a lot of people don't change them.
 - <span style="color:green;">The most popular FOSS browser, and the only one to make it on the [w3schools' top 5 most popular browsers](https://www.w3schools.com/browsers/)</span>
-- <span style="color:red">Collects telemetry and tracks your behavior</span>—this is a problem, *buuut*, since Firefox is FOSS, anyone can make a fork and remove all that. See Librewolf below.
+- <span style="color:red">Collects telemetry and tracks your behavior</span>&mdash;this is a problem, *buuut*, since Firefox is FOSS, anyone can make a fork and remove all that. See Librewolf below.
 
 ```powershell
 scoop install firefox
@@ -529,7 +529,7 @@ Typically, when you're compile code you'll be doing so through the terminal.
 Now, if you were using a GUI-based text editor, you'd have to take your hands off the keyboard and use your mouse to change the terminal window, then type in your compile command.
 If you were using a terminal text editor, you're running it *in the terminal*. 
 As soon as you close the application, you return to the command prompt in the same directory as the file, wherein you can issue whatever commands you like. 
-Personally, I vastly prefer terminal editors—I find it much easier to just to everything inside the terminal, keeping my hands on the keyboard.
+Personally, I vastly prefer terminal editors&mdash;I find it much easier to just to everything inside the terminal, keeping my hands on the keyboard.
 Even if you decide you'd rather use a GUI-based text editor, I'd also install a terminal editor&mdash;redundancy can't hurt and there may be times where you [prefer a terminal editor anyway](#git-terminal-editor).
 
 The second is whether the text editor behaves intuitively. 
@@ -547,7 +547,7 @@ They aren't intuitive, and it's a miracle that Nano puts them at the bottom of t
 There are some programs where the weird hotkeys aren't a downside; they're what attracts people to the program in the first place.
 More on this when I mention Vim.
 
-I only mention 3 text editors here—there are way more out there, and if none of these fit your bill, go ahead and find a better one.
+I only mention 3 text editors here&mdash;there are way more out there, and if none of these fit your bill, go ahead and find a better one.
 
 #### Notepad++
 
@@ -729,7 +729,7 @@ Languages that are good for quick scripting are usually interpreted instead of c
 
 Python is a fairly easy-to-learn programming language. 
 It's used in a lot of places nowadays, and comes with a lot of built-in libraries to do things so you don't have to figure it out on the fly.
-It's memory safe, meaning you don't have to worry about accidentally for the 5th element of a 4-element-long list—python won't let you.
+It's memory safe, meaning you don't have to worry about accidentally for the 5th element of a 4-element-long list&mdash;python won't let you.
 That sort of thing is really handy for 
 
 ```powershell
@@ -737,8 +737,8 @@ scoop install python
 ```
 
 After that, create an empty file ending in `.py`.
-In your file explorer, right click it, then select 'Open with&hellip;', → choose another app. Click the 'always open with this app' then 'more apps,' then 'look for another app on this pc.' From here you'll want to select `C:\Users\%USERNAME%\scoop\shims\idle.cmd`. 
-Now when you click on python files, you'll be brought into this editor. From the editor you can run them with `F5` or via `Run → Run Module`.
+In your file explorer, right click it, then select 'Open with&hellip;', &rarr; choose another app. Click the 'always open with this app' then 'more apps,' then 'look for another app on this pc.' From here you'll want to select `C:\Users\%USERNAME%\scoop\shims\idle.cmd`. 
+Now when you click on python files, you'll be brought into this editor. From the editor you can run them with `F5` or via <code>Run &rarr; Run Module</code>.
 
 You can also run python files while in the terminal with `python filename.py`.
 
@@ -806,7 +806,7 @@ After you've created a script, double click on it in the File Explorer. You will
 Select 'Always use this app to opn .ahk files,' then click 'More apps,' then 'Look for another app on this PC.'
 Navigate to `C:\Users\%Username%\scoop\apps\autohotkey\current\` then select the `U64` executable.
 
-Also, there's a gem of an executable that comes with ahk—Ahk2Exe. It'll be located at
+Also, there's a gem of an executable that comes with ahk&mdash;Ahk2Exe. It'll be located at
 `C:\Users\%Username%\scoop\autohotkey\current\Compiler\Ahk2Exe.exe`.
 It takes an ahk script you've written and turns it into a standalone `.exe` that you can run on any Windows computer even without ahk installed.
 This lets me keep a little executable on a thumb drive on my keychain that I can plug into any Windows computer and use to set my keyboard remaps the same as what I'm used to.
@@ -878,9 +878,9 @@ When you're editing, you're not looking at the final output, you're looking at a
 \begin{document}
 \maketitle
 
-As depression rises \parencite[][para. 5]{depression2018} so to will…
+As depression rises \parencite[][para. 5]{depression2018} so to will\dots
 % I'm sorry, but I'm not going to write an entire essay here. 
-…which is why sites like \href{https://mentalhelp.net}{mentalhelp.net} are vital to the continued mental health of the USA.
+\dots which is why sites like \href{https://mentalhelp.net}{mentalhelp.net} are vital to the continued mental health of the USA.
 
 \printbibliography
 
@@ -890,7 +890,7 @@ As depression rises \parencite[][para. 5]{depression2018} so to will…
 <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> is complicated. It has a *really* steep learning curve and even after you're decently proficient in it, you'll constantly be searching the web for how to do things.
 So why am I suggesting a 38 year old typesetting program? 
 The thing about <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> is that it's really good with consistent formats. 
-Take APA 7&mdash;there's a <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> APA 7 template, which formats the paper in the form of APA 7—I don't have to think about margin size or how to format a title page.
+Take APA 7&mdash;there's a <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> APA 7 template, which formats the paper in the form of APA 7&mdash;I don't have to think about margin size or how to format a title page.
 Now, I'll admit, if you're wanting a very specifically formatted document that isn't actually a common standard, you're probably better off using something like Word where it's way easier to make very specific formatting changes, but since most college papers will be following a standard like APA or MLA, I've found <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> to be the better-suited tool.
 
 The other reason <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> is nice is that it functions very similarly to code.
@@ -949,7 +949,7 @@ Which tells me that `vcredist2022` is probably a required dependency (plus runni
 I didn't want to include CSS for <span  style="font-size: 1em;">T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> and <span style="font-size: 1em;">L<sup style="text-transform: uppercase;font-size: 0.85em;vertical-align: 0.15em;margin-left: -0.36em;margin-right: -0.15em;">a</sup>T<sub style="text-transform: uppercase;vertical-align: -0.5ex;margin-left: -0.1667em;margin-right: -0.125em;font-size: 1em;">e</sub>X</span> in my main CSS and I don't have a way setup CSS for a single page only without also loading (if not using) that CSS in every other page, so I used  inline CSS instead.
 I can't claim credit for this CSS, it's an inlined version of [the CSS from this StackOverflow Answer](https://stackoverflow.com/a/8160532).
 
-If you'd like to use it for yourself…
+If you'd like to use it for yourself...
 
 TeX:
 
