@@ -1,5 +1,4 @@
 #!/bin/python
-
 import createRSS
 import indexBlog
 import sys

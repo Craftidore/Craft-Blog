@@ -1,6 +1,6 @@
 ---
 title: "Vim's q:"
-date: 220610
+date: 221104
 time: "10:00"
 ---
 

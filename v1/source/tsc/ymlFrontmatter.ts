@@ -1,9 +1,9 @@
 ((global:any) => {
     var yaml:any = {};
     var getFromFile = function(markdown:string):string {
-        var yamlFrontmatter = /^---(\r|\n)((.|\r|\n)+)---/i.exec(markdown)
+        var yamlFrontmatter = /^---(?:\r|\n)((?:.|\r|\n)+?)---/i.exec(markdown)
         if (yamlFrontmatter) {
-            return yamlFrontmatter[2];
+            return yamlFrontmatter[1];
         }
         else {// pointless else, but added for clarification
             return "yaml: false"

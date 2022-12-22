@@ -27,15 +27,15 @@ def main():
 def getBlogPosts():
     l = []
     for fileName in os.listdir(path="./blog/"):
-        if (not isfile(fileName)) and re.match(r".*\.txt$", fileName):
-            l.append(re.sub(r"(.*)\.txt$", "\\1", fileName))
+        if (not isfile(fileName)) and re.match(r".*\.md$", fileName):
+            l.append(re.sub(r"(.*)\.md$", "\\1", fileName))
         else:
             print(fileName + " is not a file")
     return l
 def iterateFiles(fileNames):
     l = []
     for fileName in fileNames:
-        f = open(join("./blog/", fileName + ".txt"), "r")
+        f = open(join("./blog/", fileName + ".md"), "r")
         print("Reading " + fileName)
         markdown = f.read()
         f.close()
@@ -74,7 +74,10 @@ def getYaml(markdown):
     return (title, date)
     
 def getFrontmatter(markdown):
-    return re.compile(r"^---(\r|\n)((.|\r|\n)+)---").match(markdown)[2]
+    temp = re.compile(r"^\s*---(\r|\n)((.|\r|\n)+)---")
+    temp = temp.match(markdown)
+    # print(temp[2])
+    return temp[2]
 
 
 if __name__ == "__main__":
