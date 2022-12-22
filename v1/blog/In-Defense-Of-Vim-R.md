@@ -22,7 +22,7 @@ This is where <kbd>R</kbd> comes in. Take the following example, where `|` is th
 document.addEventLsitener|
 ```
 
-Take `SsiRsi` vs `Ssic2lsi` (<kbd>S</kbd> being a [leap.nvim](https://github.com/ggandor/leap.nvim) keybind)
+Take `SsiRis` vs `Ssic2lis` (<kbd>S</kbd> being a [leap.nvim](https://github.com/ggandor/leap.nvim) keybind)
 While the `c<number>l` format will work well for fixing klutz typing, 
 but for me counting the number of characters or finding another motion that will only change my spelling error and not the entire word requires much more mental overhead than determining if the error in spelling has the same number of characters as the correct spelling.
 
