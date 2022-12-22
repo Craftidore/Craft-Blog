@@ -172,9 +172,9 @@ function setBlogContent(markdown) {
 }
 function parseMarkdown(markdownText) {
     var noYaml = yaml.removeFrontmatter(markdownText);
-    var withComments = noYaml.replace(/([^\\]|^)%%(([^%])*)%%/gm, "$1<!--$2-->");
-    var withAliasInternalLinks = withComments.replace(/([^\\]|^)\[\[ ?(.*)\|(.*)\]\]/g, "$1<a class=\"internal-link\" page=\"$2\">$3</a>");
-    var withNoAliasInternalLinks = withAliasInternalLinks.replace(/([^\\]|^)\[\[ ?([^\|\r\n]*)\]\]/g, "$1<a class=\"internal-link\" page=\"$2\">$2</a>");
+    var withComments = noYaml.replace(/([^\\]|^)%%(([^%])*?)%%/gm, "$1<!--$2-->");
+    var withAliasInternalLinks = withComments.replace(/([^\\]|^)\[\[ ?(.*?)\|(.*?)\]\]/g, "$1<a class=\"internal-link\" page=\"$2\">$3</a>");
+    var withNoAliasInternalLinks = withAliasInternalLinks.replace(/([^\\]|^)\[\[ ?([^\|\r\n]*?)\]\]/g, "$1<a class=\"internal-link\" page=\"$2\">$2</a>");
     var htmlText = marked.parse(withNoAliasInternalLinks);
     return htmlText.trim();
 }
@@ -263,9 +263,9 @@ function addStylingClass(cssClass, clearFirst) {
         return parsedYaml;
     };
     yaml.removeFrontmatter = function (markdown) {
-        var yamlFrontmatter = /^---(\r|\n)((.|\r|\n)+)---(\r|\n)((.|\r|\n)+)/i.exec(markdown);
+        var yamlFrontmatter = /^---(?:\r|\n)((?:.|\r|\n)+?)---(?:\r|\n)((?:.|\r|\n)+)/i.exec(markdown);
         if (yamlFrontmatter) {
-            return yamlFrontmatter[5];
+            return yamlFrontmatter[2];
         }
         else { // pointless else, but added for clarification
             return markdown;
