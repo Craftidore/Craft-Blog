@@ -110,6 +110,7 @@ function handleResponse(request, responseHandler) {
     global.logoColor = logoColor;
 })(window);
 addEventListener("DOMContentLoaded", function (event) {
+    // this comment is for testing git
     (function () {
         var q = getURLParams();
         var page = q.get("page");
