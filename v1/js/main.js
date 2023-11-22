@@ -92,9 +92,10 @@ function handleResponse(request, responseHandler) {
             (note i+=4 in the loop)
             */
             for (var i = 0; i < imgData.data.length; i += 4) {
-                imgData.data[i] = 31; //Red, 0-255
-                imgData.data[i + 1] = 199; //Green, 0-255
-                imgData.data[i + 2] = 66; //Blue, 0-255
+                // #976FD2
+                imgData.data[i] = 151; //Red, 0-255
+                imgData.data[i + 1] = 111; //Green, 0-255
+                imgData.data[i + 2] = 210; //Blue, 0-255
                 /*
                 imgData.data[i+3] contains the alpha value
                 which we are going to ignore and leave
@@ -172,9 +173,9 @@ function setBlogContent(markdown) {
 }
 function parseMarkdown(markdownText) {
     var noYaml = yaml.removeFrontmatter(markdownText);
-    var withComments = noYaml.replace(/([^\\]|^)%%(([^%])*?)%%/gm, "$1<!--$2-->");
-    var withAliasInternalLinks = withComments.replace(/([^\\]|^)\[\[ ?(.*?)\|(.*?)\]\]/g, "$1<a class=\"internal-link\" page=\"$2\">$3</a>");
-    var withNoAliasInternalLinks = withAliasInternalLinks.replace(/([^\\]|^)\[\[ ?([^\|\r\n]*?)\]\]/g, "$1<a class=\"internal-link\" page=\"$2\">$2</a>");
+    var withComments = noYaml.replace(/([^\\]|^)%%(([^%])*)%%/gm, "$1<!--$2-->");
+    var withAliasInternalLinks = withComments.replace(/([^\\]|^)\[\[ ?(.*)\|(.*)\]\]/g, "$1<a class=\"internal-link\" page=\"$2\">$3</a>");
+    var withNoAliasInternalLinks = withAliasInternalLinks.replace(/([^\\]|^)\[\[ ?([^\|\r\n]*)\]\]/g, "$1<a class=\"internal-link\" page=\"$2\">$2</a>");
     var htmlText = marked.parse(withNoAliasInternalLinks);
     return htmlText.trim();
 }
@@ -263,9 +264,9 @@ function addStylingClass(cssClass, clearFirst) {
         return parsedYaml;
     };
     yaml.removeFrontmatter = function (markdown) {
-        var yamlFrontmatter = /^---(?:\r|\n)((?:.|\r|\n)+?)---(?:\r|\n)((?:.|\r|\n)+)/i.exec(markdown);
+        var yamlFrontmatter = /^---(\r|\n)((.|\r|\n)+)---(\r|\n)((.|\r|\n)+)/i.exec(markdown);
         if (yamlFrontmatter) {
-            return yamlFrontmatter[2];
+            return yamlFrontmatter[5];
         }
         else { // pointless else, but added for clarification
             return markdown;

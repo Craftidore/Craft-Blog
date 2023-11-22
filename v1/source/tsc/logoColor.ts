@@ -27,9 +27,10 @@
             */
             
             for (var i = 0; i < imgData.data.length; i+=4) {
-                    imgData.data[i] = 31; //Red, 0-255
-                    imgData.data[i+1] = 199; //Green, 0-255
-                    imgData.data[i+2] = 66; //Blue, 0-255
+// #976FD2
+                    imgData.data[i] = 151; //Red, 0-255
+                    imgData.data[i+1] = 111; //Green, 0-255
+                    imgData.data[i+2] = 210; //Blue, 0-255
                     /* 
                     imgData.data[i+3] contains the alpha value
                     which we are going to ignore and leave
