@@ -8,7 +8,7 @@ About a month ago, someone in the Obsidian discord asked whether Linux or Window
 I didn't like the framing of this question, and proceeded to answer in multi-paragraph form at 4 in the morning.
 My response is below:
 
----
+<hr>
 
 XXXXXX to answer your question from yesterday, I do think Linux is frequently better than Windows for many use-cases (or can be made better; i.e. generic Linux is not better for gaming than Windows, SteamdeckOS definitely is). _However_, its not some sliding scale where Linux is on one end and Windows is on the other. OSes are extremely complex, and its very hard to compare them like that. Windows is exceedingly one-dimensional; for a general-purpose OS, it can't be adapted much. You're stuck with Windows, in its entirety; a black box you can't see in or do anything about. This becomes a problem when things in the black box don't work the way you need them to, or worse, are actively buggy. 
 
