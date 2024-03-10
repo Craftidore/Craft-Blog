@@ -1,5 +1,5 @@
 ---
-title: "Vim's q:"
+title: "OS Rant"
 date: 240310
 time: "10:00"
 ---
