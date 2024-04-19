@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>OOP and Functional Programming</title>
+
+		<link rel="stylesheet" href="reveal/dist/reset.css">
+		<link rel="stylesheet" href="reveal/dist/reveal.css">
+		<link rel="stylesheet" href="reveal/dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal/plugin/highlight/monokai.css">
+    <style>
+.fragment.disappear-after.visible:not(.current-fragment) {
+    display: none;
+    height:0px;
+    line-height: 0px;
+    font-size: 0px;
+}
+pre {
+    width: fit-content !important;
+}
+    </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <h1>Networking: A Windows and Linux Comparison*</h1>
+                    <p class="fragment" data-fragment-index="1">*With tangents</p>
+                    <aside class="notes">
+                        <pre style="white-space: pre-wrap;">
+- Only covered networking on windows
+- Useful, but one won't always be programming for Windows
+- Not full detail about Linux's implementation under-the-hood
+                        </pre>
+                    </aside>
+                </section>
+                <section>
+                    <h2>More Similar Than You Think</h2>
+<pre class="cpp fragment disappear-after" data-fragment-index="0"><code data-trim data-noescape
+>int rc = WSAStartup();
+// Do addrinfo setup
+rc = getaddrinfo("craft-ublue-desktop", "3000", &amp;hints, &amp;result)
+SOCKET sock = INVALID_SOCKET;
+sock = socket(result-&gt;ai_family,
+    result-&gt;ai_socktype,
+    result-&gt;result-&gt;ai_protocol);
+rc = sendto(sock,
+    "Hello, world!", strlen("Hello, world!")+1,
+    (sockaddr*)result-&gt;ai_addr, result-&gt;ai_addrlen);
+freeaddrinfo(result);
+closesocket(sock);
+WSACleanup();</code></pre>
+                    <pre class="cpp fragment disappear-after" data-fragment-index="1"><code data-trim data-noescape
+>int rc; // No WSAStartup
+// Do addrinfo setup
+rc = getaddrinfo("craft-ublue-desktop", "3000", &amp;hints, &amp;result)
+int    sock = INVALID_SOCKET;
+sock = socket(result-&gt;ai_family,
+    result-&gt;ai_socktype,
+    result-&gt;result-&gt;ai_protocol);
+rc = sendto(sock,
+    "Hello, world!", strlen("Hello, world!")+1,
+    (sockaddr*)result-&gt;ai_addr, result-&gt;ai_addrlen);
+freeaddrinfo(result);
+close(sock);
+// No WSACleanup</code>
+                    </pre>
+                </section>
+                <section>
+                    <ul>
+                        <li><pre class="cpp" style="margin: 10px;"><code>int rc = WSAStartup();</code></pre></li>
+                        <li><pre class="cpp" style="margin: 10px;"><code>SOCKET sock = INVALID_SOCKET;</code></pre></li>
+                        <li><pre class="cpp" style="margin: 10px;"><code>closesocket(sock);</code></pre></li>
+                        <li><pre class="cpp" style="margin: 10px;"><code>WSACleanup();</code></pre></li>
+                    </ul>
+                    <aside class="notes">
+                        <pre style="white-space: pre-wrap;">
+As you can see, very _very_ few differences.
+Before I talk about the differences, why are they similar?
+For this, history!
+                        </pre>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Berkeley Sockets, POSIX, and UNIX*</h2>
+                    <p>*Tangent #1</p>
+                    <blockquote class="fragment disappear-after" data-fragment-index="0">"You really need to know more unix than windows, and we don't have it in
+enough classes. We touch on it a little here and a little there, and you do
+some with it in Operating Systems, but not enough. So take it upon yourself to
+                        learn a lot about it."</blockquote>
+                    <cite class="fragment disappear-after" data-fragment-index="0">- Dr. Baird</cite>
+                    <ol class="fragment" data-fragment-index="1">
+                        <li>UNIX operating system created: Early 70s</li>
+                        <li class="fragment" data-fragment-index="2">CSRG releases Berkeley Software Distribution: 1976</li>
+                        <li class="fragment" data-fragment-index="3">DARPA contracts CSRG to work on ARPANET: 1982</li>
+                        <li class="fragment" data-fragment-index="4">POSIX Created: 1988</li>
+                        <li class="fragment" data-fragment-index="5">CSRG funding ran out; BSD open-sourced: 1990</li>
+                    </ol>
+                    <aside class="notes">
+<pre style="white-space: pre-wrap;">
+- UNIX was first OS built with high-level lang. Created by AT&amp;T. 
+    Various other OSes built ontop of UNIX code; BSD one of these
+- BSD created; common distribution with many userspace programs
+- POSIX standard for OSes, APIs, environment, available programs, etc.
+    Based on UNIX+BSD additions, and including BSD's sockets impl.
+- BSD's interface for sockets: unofficial standard, integrated into POSIX w/mods
+</pre>
+                    </aside>
+                </section>
+                <section>
+                    <h2>GNU and Linux</h2>
+                    <p class="fragment" data-fragment-index="1">GNU stands for GNU's Not UNIX.</p>
+                    <p class="fragment" data-fragment-index="2">Aims to be an Open-Source implementation of POSIX standard, but not officially POSIX-certified</p>
+                    <aside class="notes">
+                        <pre style="white-space: pre-wrap;">
+- GNU is both most widely-used version of UNIX, and also not technically UNIX
+- GNU is the layer on top of Linux that makes it a usable OS
+- GNU's glibc provides implementations of Berk. Sockets for Linux
+                        </pre>
+                    </aside>
+                </section>
+                <section>
+                    <h2>GNU's POSIX Sockets functions</h2>
+                    <pre class="c">
+<code class="data-trim data-noescape">ssize_t __libc_sendto (int fd, const void *buf,
+            size_t len, int flags,
+             __CONST_SOCKADDR_ARG addr, socklen_t addrlen) {
+    return SYSCALL_CANCEL (sendto, fd, buf, len, flags,
+        addr.__sockaddr__, addrlen);
+}
+weak_alias (__libc_sendto, sendto)</code></pre>
+                    <aside class="notes">
+                        <pre style="white-space: pre-wrap;">
+- I've slightly simplified the function.
+- Notice it's making a syscall.
+- What's a syscall? Note ASM.
+- Note reason we have to use syscalls as userspace
+                        </pre>
+                    </aside>
+                </section>
+                <section>
+                    <h2>In the Kernel</h2>
+                    <ol class="fragment" data-fragment-index="1">
+                        <li>Syscall calls __sys_socket()</li>
+                        <li class="fragment" data-fragment-index="2">Allocates socket struct on heap</li>
+                        <li class="fragment" data-fragment-index="3">Maps socket struct to file descriptor</li>
+                        <li class="fragment" data-fragment-index="4">Creates 'pseudofile' representing socket</li>
+                        <li class="fragment" data-fragment-index="5">Maps pseudofile to file descriptor</li>
+                        <li class="fragment" data-fragment-index="6">Returns file descriptor</li>
+                    </ol>
+                    <aside class="notes">
+                        <pre style="white-space: pre-wrap;">
+- sendto is a crazy complicated syscall
+- socket is a bit simpler
+                        </pre>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Everything is a File*</h2>
+                    <p>*Tangent #2</p>
+                    <pre class="c fragment" data-fragment-index="1"><code class="data-trim data-noescape">/* Windows: */
+sock = socket(/* ... */);
+closesocket(sock);
+/* Linux/Mac/BSD/etc.: */
+sock = socket(/* ... */);
+close(sock);</code></pre>
+                    <aside class="notes">
+                        <pre style="white-space: pre-wrap;">
+- UNIX, for those of you who've taken SoftEng,
+        has high internal consistency.
+- UNIX philosophy drove this; still relevant today
+- 'write programs to do 1 and only 1 thing'
+- 'Everything is a file' (keyboard/printer/hard drive)
+    - Interactions like write/read
+- Linux, as UNIX-like, follows this as well
+- cin/cout are files w/fd, for example,
+    but our sockets are too
+                        </pre>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Windows usage of Berkeley Sockets</h2>
+                    <p>Windows uses the Berkeley Sockets API, but it doesn't fit in well.</p>
+                    <ol class="fragment" data-fragment-index="1">
+                        <li>WSAStartup and WSACleanup required on Windows</li>
+                        <li>SOCKET is an unsigned int, and not an int (so INVALID_SOCKET is MAX_INT, not -1)</li>
+                        <li>SOCKETs are their own thing, instead of generic file descriptors</li>
+                        <li>closesocket() used instead of close()</li>
+                    </ol>
+                    <aside class="notes">
+                        <pre style="white-space: pre-wrap;">
+Windows uses Berkeley sockets, but they don't fit in.
+At minimum, PascalCase vs all-lowercase.
+Behavior inconsistent with rest of OS.
+Still probably the right decision; people more 
+likely to use your OS when they don't need to learn new things.
+
+conclusion: it is fascinating how much an operating system from the 70s still impacts our coding today.
+                        </pre>
+                    </aside>
+                </section>
+			</div>
+		</div>
+
+		<script src="reveal/dist/reveal.js"></script>
+		<script src="reveal/plugin/notes/notes.js"></script>
+		<script src="reveal/plugin/markdown/markdown.js"></script>
+		<script src="reveal/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
