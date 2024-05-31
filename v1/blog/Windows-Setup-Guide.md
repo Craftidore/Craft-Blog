@@ -50,7 +50,7 @@ time: "10:00"
         - [A Note On Pip and NPM](#a-note-on-pip-and-npm)
 - [Phase 3 &mdash; Installing Other Programs](#phase-3--installing-other-programs)
     - [Obsidian](#obsidian)
-    - [AutoHotKey](#autohotkey---ahk)
+    - [AutoHotKey](#autohotkey--ahk)
     - [Espanso](#espanso)
     - [LaTeX](#latex-) &mdash; This section is still under construction.
     - [Pandoc](#pandoc)
@@ -354,7 +354,7 @@ scoop bucket add extras
 
 which will give you a wider selection of programs than the defaults.
 
----
+<hr>
 
 When you want to install something with scoop, open up either powershell or the command prompt and run `scoop install nameofthing`.
 If you want to find out if scoop has a package to install, run `scoop search nameofthing` or you can search for it [on scoop's website](https://scoop.sh/#/apps?s=0&d=1&o=true), which also searches the app descriptions for your keyword.
